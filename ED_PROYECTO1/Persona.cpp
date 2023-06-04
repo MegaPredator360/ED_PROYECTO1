@@ -1,6 +1,6 @@
 #include "Persona.h"
 
-// Constructores n
+// Constructores
 Persona::Persona(void) {}
 Persona::Persona(
 	string perCedula,
@@ -10,7 +10,8 @@ Persona::Persona(
 	int perTelefono,
 	int perNumeroHijos,
 	string perEstadoCivil,
-	int perHorasTrabajo
+	int perHorasTrabajo,
+	string perTipoEmpleado
 ) {
 	Cedula = perCedula;
 	Nombre = perNombre;
@@ -20,6 +21,7 @@ Persona::Persona(
 	NumeroHijos = perNumeroHijos;
 	EstadoCivil = perEstadoCivil;
 	HorasTrabajo = perHorasTrabajo;
+	TipoEmpleado = perTipoEmpleado;
 }
 
 // Getters and Setters
@@ -39,6 +41,8 @@ string Persona::getEstadoCivil() { return EstadoCivil; }
 void Persona::setEstadoCivil(string perEstadoCivil) { EstadoCivil = perEstadoCivil; }
 int Persona::getHorasTrabajo() { return HorasTrabajo; }
 void Persona::setHorasTrabajo(int perHorasTrabajo) { HorasTrabajo = perHorasTrabajo; }
+string Persona::getTipoEmpleado() { return TipoEmpleado; }
+void Persona::setTipoEmpleado(string perTipoEmpleado) { TipoEmpleado = perTipoEmpleado; }
 
 void Persona::MostrarPersona()
 {
@@ -51,6 +55,7 @@ void Persona::MostrarPersona()
 	cout << "Cantidad de Hijos: " << NumeroHijos << endl;
 	cout << "Estado Civil: " << EstadoCivil << endl;
 	cout << "Horas de Trabajo: " << HorasTrabajo << endl;
+	cout << "Tipo de Empleado: " << TipoEmpleado << endl;
 	cout << "--------------" << endl;
 }
 

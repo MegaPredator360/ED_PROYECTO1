@@ -16,6 +16,7 @@ private:
 	int NumeroHijos;
 	string EstadoCivil;
 	int HorasTrabajo;
+	string TipoEmpleado;
 
 public:
 	// Constructores n
@@ -28,7 +29,8 @@ public:
 		int perTelefono,
 		int perNumeroHijos,
 		string perEstadoCivil,
-		int perHorasTrabajo
+		int perHorasTrabajo,
+		string perTipoEmpleado
 	);
 
 	// Getters
@@ -40,6 +42,7 @@ public:
 	int getNumeroHijos();
 	string getEstadoCivil();
 	int getHorasTrabajo();
+	string getTipoEmpleado();
 
 	// Setters
 	void setCedula(string perCedula);
@@ -50,6 +53,7 @@ public:
 	void setNumeroHijos(int perNumeroHijos);
 	void setEstadoCivil(string perEstadoCivil);
 	void setHorasTrabajo(int perHorasTrabajo);
+	void setTipoEmpleado(string perTipoEmpleado);
 
 	void MostrarPersona();
 	~Persona();

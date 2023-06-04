@@ -21,7 +21,7 @@ int MenuPricipal(int menuOpcion)
 	cout << "Seleciona una opcion:" << endl;
 	cin >> menuOpcion;
 
-	while (menuOpcion <= 1 || menuOpcion >= 8)
+	while (menuOpcion <= 0 || menuOpcion >= 8)
 	{
 		cout << "La número escrito no coincide con ninguna de las opciones, selecciona una de las opciones de la lista" << endl;
 		cin >> menuOpcion;

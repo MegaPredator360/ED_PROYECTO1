@@ -1,6 +1,6 @@
 #include "Persona.h"
 
-// Constructores
+// Constructores n
 Persona::Persona(void) {}
 Persona::Persona(
 	string perCedula,

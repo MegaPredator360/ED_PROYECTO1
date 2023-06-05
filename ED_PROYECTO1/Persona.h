@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+// Para intereacción con archivos
+#include <fstream>
 
 using namespace std;
 
@@ -56,6 +58,9 @@ public:
 	void setTipoEmpleado(string perTipoEmpleado);
 
 	void MostrarPersona();
+	void GuardarPersona();
+	void ActualizarPersona();
+	void EliminarPersona();
 	~Persona();
 };
 

@@ -59,6 +59,21 @@ void Persona::MostrarPersona()
 	cout << "--------------" << endl;
 }
 
+void Persona::GuardarPersona()
+{
+
+}
+
+void Persona::ActualizarPersona()
+{
+
+}
+
+void Persona::EliminarPersona()
+{
+
+}
+
 Persona::~Persona()
 {
 	cout << "Se ha eliminado un empleado" << endl;

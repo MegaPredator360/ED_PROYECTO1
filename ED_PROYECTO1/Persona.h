@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <conio.h>
 // Para intereacción con archivos
 #include <fstream>
 

@@ -1,5 +1,6 @@
 #include "Persona.h"
 
+
 // Constructores
 Persona::Persona(void) {}
 Persona::Persona(
@@ -61,7 +62,61 @@ void Persona::MostrarPersona()
 
 void Persona::GuardarPersona()
 {
+	int confirmacion = 110;
+	int numTipoEmpleado = 0;
+	int numEstadoCivil = 0;
 
+	try
+	{
+		while (confirmacion == 110)
+		{
+			system("CLS");
+			cout << "Agregar Empleados" << endl << endl;
+			cout << "Ingrese la identificacion: " << endl; //No puede haber 2 cedulas iguales
+			cin >> Cedula;
+			cout << "Ingrese el nombre del empleado " << endl;
+			cin >> Nombre;
+			cout << "Ingrese la nacionalidad: " << endl;
+			cin >> Nacionalidad;
+			cout << "Ingrese la residencia: " << endl;
+			cin >> Residencia;
+			cout << "Ingrese el telefono" << endl;// No puede haber 2 telefonos iguales
+			cin >> Telefono;
+			cout << "Ingrese la cantidad de hijos : " << endl;
+			cin >> NumeroHijos;
+			cout << "Ingresa el Estado Civil: [1) Soltero(a), 2) Casado(a), 3) Viudo(a), 4) Divorciado(a)]" << endl;
+			cin >> numEstadoCivil;
+			cout << "Ingrese la cantidad de horas de trabajo : " << endl; //?
+			cin >> HorasTrabajo;
+			cout << "Ingresa el puesto del empleado: [1) Empleado, 2) Gerente]" << endl; //Empleado o Gerente?
+			cin >> numTipoEmpleado;
+			cout << "¿La información ingresada es correcta? [S/n]" << endl; //?
+			// Obtendrá el valor de la tecla que se pulse en el formato "ASCII" y se validará si la opcion ingresada es correcta o no
+			confirmacion = _getch();
+			while (confirmacion != 13 && confirmacion != 83 && confirmacion != 115 && confirmacion != 78 && confirmacion != 110)
+			{
+				cout << "La opcion ingresada no es correcta." << endl;
+				cout << "¿La información ingresada es correcta? [S/n]" << endl;
+				confirmacion = _getch();
+			}
+			
+			if (confirmacion == 78)
+			{
+				confirmacion = 110;
+			}
+
+			if (confirmacion == 13 || confirmacion == 83 || confirmacion == 115)
+			{
+				ofstream perArchivo("Empleados.txt");	// Creará el archivo
+				perArchivo << "{Cedula}/{Nombre}";		// Escribirá los datos del empleado en el archivo
+				perArchivo.close();						// Guardará los datos en el archivo
+			}
+		}
+	}
+	catch (exception e)
+	{
+		throw e;
+	}
 }
 
 void Persona::ActualizarPersona()

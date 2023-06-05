@@ -1,5 +1,8 @@
 #include <iostream>
 #include <wchar.h>	// Para ingresar caracteres especiales
+#include "Empleado.h"
+
+// Colores para consola
 #define RED     "\033[31m"
 #define RESET   "\033[0m"
 using namespace std;
@@ -9,16 +12,16 @@ int MenuPricipal(int menuOpcion)
 	// Limpiar Consola
 	system("CLS");
 
-	cout << endl << endl;
+	cout << "				Menú Principal" << endl << endl;
 	cout << "	////////////////////////////////////////////////////" << endl;
 	cout << "	//" << endl;
 	cout << "	// ¿Que deseas realizar?" << endl;
-	cout << "	// 1) Ingresar usuarios." << endl;
-	cout << "	// 2) Mostrar usuarios." << endl;
-	cout << "	// 3) Actualizar usuarios." << endl;
-	cout << "	// 4) Eliminar usuarios." << endl;
-	cout << "	// 5) Calcular salario de un usuario." << endl;
-	cout << "	// 6) Calcular salario de todos los usuarios." << endl;
+	cout << "	// 1) Ingresar empleados." << endl;
+	cout << "	// 2) Mostrar empleados." << endl;
+	cout << "	// 3) Actualizar empleados." << endl;
+	cout << "	// 4) Eliminar empleados." << endl;
+	cout << "	// 5) Calcular salario de un empleados." << endl;
+	cout << "	// 6) Calcular salario de todos los empleados." << endl;
 	cout << "	// 7) Salir" << endl;
 	cout << "	//" << endl;
 	cout << "	////////////////////////////////////////////////////" << endl << endl << endl;
@@ -74,6 +77,7 @@ int main()
 	// Pausar procesos y para continuar hay que pulsar cualquier tecla
 	system("pause");
 
+	Persona persona;
 	int opcion = 1;
 
 	while (opcion != 0)
@@ -83,34 +87,16 @@ int main()
 		switch(opcion)
 		{
 			case 1:
-				//int tipoEmpleado
 				// Ingresar Usuarios
-				cout << "Ingrese el nombre del empleado " << endl;
-				cout << "Ingrese la identificacion: " << endl;//No puede haber 2 cedulas iguales
-				cout << "Ingrese la nacionalidad: " << endl;
-				cout << "Ingrese la residencia: " << endl;
-				cout << "Ingrese el telefono" << endl;// No puede haber 2 telefonos iguales
-				cout << "Ingrese el estado civil del empleado: " << endl;
-				cout << "Ingrese la cantidad de hijos : " << endl;
-				cout << "Ingrese la cantidad de hijos : " << endl;
-				cout << "Ingrese la cantidad de horas de trabajo : " << endl; //?
-				cout << "Puesto: (1-Empleado 2-Gerente) " << endl; //Empleado o Gerente?
-				/*cin>> tipoEmpleado
-				
-				if(tipoEmpleado > 2){
-				std::cout<<RED<<cout<<"Elija una opcion disponible<< RESET<<std::endl;
-				}else{
-
+				try
+				{
+					persona.GuardarPersona();
 				}
-				
-				
-				
-				
-				*/
-
-				
-
-				
+				catch (exception e)
+				{
+					throw e;
+				}
+				void GuardarPersonas();
 				break;
 			
 			case 2:

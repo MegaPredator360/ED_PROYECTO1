@@ -3,7 +3,11 @@
 
 class Empleado
 {
-    void CalcularSalarioIndividual(int perCedula);
+private:
+    Persona valor;
+
+public:
+    void CalcularSalarioIndividual();
     void CalcularSalarioTodos();
 };
 

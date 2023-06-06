@@ -90,7 +90,8 @@ void Persona::GuardarPersona()
 			cin >> HorasTrabajo;
 			cout << "Ingresa el puesto del empleado: [1) Empleado, 2) Gerente]" << endl; //Empleado o Gerente?
 			cin >> numTipoEmpleado;
-			cout << "¿La información ingresada es correcta? [S/n]" << endl; //?
+			cout << "--------------------------------------------" << endl; //?
+			cout << "¿La información ingresada es correcta? [S/n]" << endl;
 			// Obtendrá el valor de la tecla que se pulse en el formato "ASCII" y se validará si la opcion ingresada es correcta o no
 			confirmacion = _getch();
 			while (confirmacion != 13 && confirmacion != 83 && confirmacion != 115 && confirmacion != 78 && confirmacion != 110)
@@ -107,9 +108,20 @@ void Persona::GuardarPersona()
 
 			if (confirmacion == 13 || confirmacion == 83 || confirmacion == 115)
 			{
-				ofstream perArchivo("Empleados.txt");	// Creará el archivo
-				perArchivo << "{Cedula}/{Nombre}";		// Escribirá los datos del empleado en el archivo
-				perArchivo.close();						// Guardará los datos en el archivo
+				ofstream perArchivo("Empleados.txt", ios::app);		// Creará el archivo
+				perArchivo << Cedula << "/" << Nombre << "/" << Nacionalidad << "/" << Residencia << "/" << Telefono << "/" << NumeroHijos << "/" << numEstadoCivil << "/" << HorasTrabajo << "/" << numTipoEmpleado << "\n";				// Escribirá los datos del empleado en el archivo
+				perArchivo.close();									// Guardará los datos
+				
+				if (!perArchivo)
+				{
+					cout << "Ocurrio un error al guardar los datos" << endl;
+					system("pause");
+				}
+				else
+				{
+					cout << "El empleado fue agregado con exito" << endl;
+					system("pause");
+				}
 			}
 		}
 	}

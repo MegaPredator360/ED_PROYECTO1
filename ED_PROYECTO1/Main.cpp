@@ -2,13 +2,11 @@
 #include <wchar.h>	// Para ingresar caracteres especiales
 #include "Empleado.h"
 
-// Colores para consola
-#define RED     "\033[31m"
-#define RESET   "\033[0m"
 using namespace std;
 
 int MenuPricipal(int menuOpcion)
 {
+	FuncionesCustom FunCus;
 	// Limpiar Consola
 	system("CLS");
 
@@ -26,21 +24,31 @@ int MenuPricipal(int menuOpcion)
 	cout << "	//" << endl;
 	cout << "	////////////////////////////////////////////////////" << endl << endl << endl;
 	cout << "Seleciona una opcion:" << endl;
-	cin >> menuOpcion;
+	
+	try
+	{
+		menuOpcion = stoi(FunCus.aceptarNumeros());
 
-	while (menuOpcion <= 0 || menuOpcion >= 8)
-	{
-		cout<<RED << "El número escrito no coincide con ninguna de las opciones, selecciona una de las opciones de la lista" << RESET<< endl;
-		cin >> menuOpcion;
-	}
+		while (menuOpcion <= 0 || menuOpcion >= 8)
+		{
+			cout << RED << "El número escrito no coincide con ninguna de las opciones, selecciona una de las opciones de la lista" << RESET << endl;
+			cin >> menuOpcion;
+		}
 
-	if (menuOpcion == 7)
-	{
-		exit(0);
+		if (menuOpcion == 7)
+		{
+			exit(0);
+		}
+		else
+		{
+			return menuOpcion;
+		}
 	}
-	else
+	catch (exception& e)
 	{
-		return menuOpcion;
+		cout << RED << "Un error a ocurrido: " << RESET << e.what() << endl;
+		system("pause");
+		return menuOpcion = 0;
 	}
 }
 
@@ -78,9 +86,9 @@ int main()
 	system("pause");
 
 	Persona persona;
-	int opcion = 1;
+	int opcion = 0;
 
-	while (opcion != 0)
+	while (opcion == 0)
 	{
 		opcion = MenuPricipal(opcion);
 
@@ -91,12 +99,16 @@ int main()
 				try
 				{
 					persona.GuardarPersona();
+					opcion = 0;
 				}
-				catch (exception e)
+				catch (exception& e)
 				{
-					throw e;
+					cout << RED << "Un error a ocurrido: " << RESET << e.what() << endl;
+					cout << RED << "---------------------------------" << RESET << endl;
+					cout << "Regresarás al menú principal" << endl;
+					system("pause");
+					opcion = 0;
 				}
-				void GuardarPersonas();
 				break;
 			
 			case 2:
@@ -160,7 +172,7 @@ int main()
 				break;
 				
 			default:
-				cout <<RED<< "Se ha seleccionado una opcion invalida" <<RESET<< endl;
+				cout << RED << "Se ha seleccionado una opcion invalida" << RESET << endl;
 		}
 	}
 	return 0;

@@ -14,7 +14,7 @@
 
 using namespace std;
 
-class FuncionesCustom
+class Validaciones
 {
 public:
 	// Para ingresar solo números

@@ -1,6 +1,6 @@
-#include "FuncionesCustom.h"
+#include "Validaciones.h"
 
-string FuncionesCustom::aceptarNumeros()
+string Validaciones::aceptarNumeros()
 {
 	int asciiChar = 0;
 	string num = "";
@@ -35,14 +35,14 @@ string FuncionesCustom::aceptarNumeros()
 	return (num);
 }
 
-int FuncionesCustom::numeroTelefonoAleatorio()
+int Validaciones::numeroTelefonoAleatorio()
 {
 	random_device rd;										// Se crea el dispositivo que se utilizará para generar números aleatorios
 	uniform_int_distribution<int> dist(20000000, 89999999);	// Se define tipo de dato y el rango de números
 	return dist(rd);										// Se genera el número
 }
 
-string FuncionesCustom::confirmacionDefS()			// Utiliza la misma estructura que el de solo aceptarNumeros()
+string Validaciones::confirmacionDefS()			// Utiliza la misma estructura que el de solo aceptarNumeros()
 {
 	int asciiChar = 0;
 	string letra = "";

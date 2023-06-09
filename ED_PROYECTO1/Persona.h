@@ -1,5 +1,5 @@
 #pragma once
-#include "FuncionesCustom.h"
+#include "Validaciones.h"
 
 // Colores para consola
 #define RED     "\033[31m"
@@ -63,8 +63,6 @@ public:
 	void setTipoEmpleado(string perTipoEmpleado);
 
 	void MostrarPersona();
-	void GuardarPersona();
-	void ActualizarPersona();
-	void EliminarPersona();
+	void MostrarPersonaBorrar();
 	~Persona();
 };

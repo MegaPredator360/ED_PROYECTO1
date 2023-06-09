@@ -128,13 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Empleado.h" />
-    <ClInclude Include="FuncionesCustom.h" />
+    <ClInclude Include="Validaciones.h" />
+    <ClInclude Include="ListaEmpleados.h" />
+    <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Empleado.cpp" />
-    <ClCompile Include="FuncionesCustom.cpp" />
+    <ClCompile Include="Validaciones.cpp" />
+    <ClCompile Include="ListaEmpleados.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Persona.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

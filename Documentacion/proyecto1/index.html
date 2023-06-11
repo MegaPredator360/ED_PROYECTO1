@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentacion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <!--Colores, logo y diseño provicionales-->
+  <body>
+    <header class="header">
+      <div class="imagen">
+        <img src="img/logo_ulatina_1_light.png" alt="Logo1" />
+        <!--Usaremos un logo?-->
+      </div>
+      <nav>
+        <ul class="links">
+          <li><a href="#">Opción 1</a></li>
+          <li><a href="#">Opción 2</a></li>
+          <li><a href="#">Opción 3</a></li>
+        </ul>
+      </nav>
+      <a class="boton" href="#"><button hidden>Menu</button></a>
+
+      <a onclick="openNav()" class="menu" href="#"><button>Menú</button></a>
+
+      <div id="mobile-menu" class="overlay">
+        <a onclick="closeNav()" href="" class="close">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Opción 1</a>
+          <a href="#">Opción 2</a>
+          <a href="#">Opción 3</a>
+          <a href="#">Opción 4</a>
+        </div>
+      </div>
+    </header>
+     
+    <footer class="footer">
+         <p>Creado por: <br> Fabian Arrieta <br> Aaron Alfaro</p>
+        <P>Estructura de Datos</P>
+        <p>Universidad Latina de Costa Rica</p>
+        </footer>
+     <script type="text/javascript" src="nav.js"></script>
+  </body>
+ 
+</html>

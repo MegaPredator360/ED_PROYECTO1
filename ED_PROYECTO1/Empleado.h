@@ -4,10 +4,9 @@
 class Empleado
 {
 private:
-    Persona valor;
+    float SalarioMensual;
 
 public:
-    void CalcularSalarioIndividual();
-    void CalcularSalarioTodos();
+    void CalcularSalario(Persona p);
 };
 

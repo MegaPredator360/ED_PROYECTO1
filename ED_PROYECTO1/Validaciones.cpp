@@ -100,3 +100,14 @@ string Validaciones::confirmacionDefS()			// Utiliza la misma estructura que el 
 
 	return (letra);
 }
+
+int Validaciones::tamanoString(string texto)
+{
+	int cantidad = 0;						// Cantidad de letras en el string
+	for (int i = 0; texto[i] != '\0'; i++)	// Contará la cantidad de letras que hay en el string
+	{
+		cantidad++;
+
+	}
+	return cantidad;
+}

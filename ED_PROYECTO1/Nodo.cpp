@@ -11,11 +11,12 @@ Nodo::Nodo(Persona p, Nodo* sig = NULL)
 	_persona.setNumeroHijos(p.getNumeroHijos());
 	_persona.setEstadoCivil(p.getEstadoCivil());
 	_persona.setHorasTrabajo(p.getHorasTrabajo());
+	_persona.setHorasExtrasTrabajo(p.getHorasExtrasTrabajo());
 	_persona.setTipoEmpleado(p.getTipoEmpleado());
 	siguiente = sig;
 }
 
-Nodo::~Nodo() { cout << "Se ha destruido un nodo" << endl; }
+Nodo::~Nodo() { }
 
 // Guardará el valor de la persona a almacenar
 void Nodo::setValor(Persona p) 

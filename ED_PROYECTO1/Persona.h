@@ -1,10 +1,6 @@
 #pragma once
 #include "Validaciones.h"
 
-// Colores para consola
-#define RED     "\033[31m"
-#define RESET   "\033[0m"
-
 using namespace std;
 
 class Persona
@@ -20,11 +16,13 @@ private:
 	int NumeroHijos;
 	string EstadoCivil;
 	int HorasTrabajo;
+	int HorasExtrasTrabajo;
 	string TipoEmpleado;
 
 public:
-	// Constructores n
+	// Constructores
 	Persona(void);
+	Persona(int i);
 	Persona(
 		string perTipoCedula,
 		string perCedula,
@@ -35,6 +33,7 @@ public:
 		int perNumeroHijos,
 		string perEstadoCivil,
 		int perHorasTrabajo,
+		int perHorasExtrasTrabajo,
 		string perTipoEmpleado
 	);
 
@@ -48,6 +47,7 @@ public:
 	int getNumeroHijos();
 	string getEstadoCivil();
 	int getHorasTrabajo();
+	int getHorasExtrasTrabajo();
 	string getTipoEmpleado();
 
 	// Setters
@@ -60,9 +60,11 @@ public:
 	void setNumeroHijos(int perNumeroHijos);
 	void setEstadoCivil(string perEstadoCivil);
 	void setHorasTrabajo(int perHorasTrabajo);
+	void setHorasExtrasTrabajo(int perHorasExtrasTrabajo);
 	void setTipoEmpleado(string perTipoEmpleado);
 
 	void MostrarPersona();
-	void MostrarPersonaBorrar();
+	void MostrarPersonaSimple();
+	string ObtenerPersona();
 	~Persona();
 };

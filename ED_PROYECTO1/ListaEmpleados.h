@@ -10,10 +10,15 @@ private:
 public:
 	ListaEmpleados();
 	void agregarEmpleados(Persona p);
-	void actualizarEmpleados();
-	void mostrarEmpleados();
-	void mostrarEmpleadosBorrar();
-	void borrarEmpleados();
+	void actualizarEmpleados(Nodo* valorModificar, Persona p);
+	void mostrarEmpleadosCompleto();
+	void mostrarEmpleadosSimple();
+	Nodo* buscarEmpleados(string cedula);
+	void borrarEmpleados(Nodo* valorBorrar);
+	void calcularSalarioIndividual(Nodo* valorConsultar);
+	void calcularSalarioTodos();
+	void guardarArchivo();
+	void cargarArchivo();
 	~ListaEmpleados();
 };
 

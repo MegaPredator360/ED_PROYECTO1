@@ -2,6 +2,7 @@
 
 // Constructores
 Persona::Persona(void) {}
+Persona::Persona(int i) {}
 Persona::Persona(
 	string perTipoCedula,
 	string perCedula,
@@ -12,6 +13,7 @@ Persona::Persona(
 	int perNumeroHijos,
 	string perEstadoCivil,
 	int perHorasTrabajo,
+	int perHorasExtrasTrabajo,
 	string perTipoEmpleado
 ) {
 	TipoCedula = perTipoCedula;
@@ -23,6 +25,7 @@ Persona::Persona(
 	NumeroHijos = perNumeroHijos;
 	EstadoCivil = perEstadoCivil;
 	HorasTrabajo = perHorasTrabajo;
+	HorasExtrasTrabajo = perHorasExtrasTrabajo;
 	TipoEmpleado = perTipoEmpleado;
 }
 
@@ -45,6 +48,8 @@ string Persona::getEstadoCivil() { return EstadoCivil; }
 void Persona::setEstadoCivil(string perEstadoCivil) { EstadoCivil = perEstadoCivil; }
 int Persona::getHorasTrabajo() { return HorasTrabajo; }
 void Persona::setHorasTrabajo(int perHorasTrabajo) { HorasTrabajo = perHorasTrabajo; }
+int Persona::getHorasExtrasTrabajo() { return HorasExtrasTrabajo; }
+void Persona::setHorasExtrasTrabajo(int perHorasExtrasTrabajo) { HorasExtrasTrabajo = perHorasExtrasTrabajo; }
 string Persona::getTipoEmpleado() { return TipoEmpleado; }
 void Persona::setTipoEmpleado(string perTipoEmpleado) { TipoEmpleado = perTipoEmpleado; }
 
@@ -60,12 +65,18 @@ void Persona::MostrarPersona()
 	cout << "Cantidad de Hijos: " << NumeroHijos << endl;
 	cout << "Estado Civil: " << EstadoCivil << endl;
 	cout << "Horas de Trabajo: " << HorasTrabajo << endl;
+	cout << "Horas Extra de Trabajo Acumuladas: " << HorasExtrasTrabajo << endl;
 	cout << "Tipo de Empleado: " << TipoEmpleado << endl;
 }
 
-void Persona::MostrarPersonaBorrar()
+void Persona::MostrarPersonaSimple()
 {
-	cout << "	-- Cedula: " << Cedula << ", Nombre : " << Nombre << endl;
+	cout << "	-- Cedula: " << Cedula << ", Nombre: " << Nombre << endl;
+}
+
+string Persona::ObtenerPersona()
+{
+	return string(TipoCedula + "/" + Cedula + "/" + Nombre + "/" + Nacionalidad + "/" + Residencia + "/" + to_string(Telefono) + "/" + to_string(NumeroHijos) + "/" + EstadoCivil + "/" + to_string(HorasTrabajo) + "/" + to_string(HorasExtrasTrabajo) + "/" + TipoEmpleado);
 }
 
 Persona::~Persona() { }

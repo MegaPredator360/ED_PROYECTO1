@@ -222,6 +222,32 @@ void ListaEmpleados::cargarArchivo()
 	}
 }
 
+bool ListaEmpleados::verificarCedula(string cedula)
+{
+	Nodo* valorAnterior = NULL;
+	valorActual = primerValor;
+
+	if (primerValor -> getValor().getCedula() == cedula)
+	{
+		return true;
+	}
+
+	while (valorActual != NULL && valorActual -> getValor().getCedula() != cedula)
+	{
+		valorAnterior = valorActual;
+		valorActual = valorActual->getSiguiente();
+	}
+
+	if (valorActual == NULL)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
 void ListaEmpleados::mostrarEmpleadosSimple()
 {
 	try

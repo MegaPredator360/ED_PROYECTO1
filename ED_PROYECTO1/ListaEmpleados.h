@@ -19,6 +19,7 @@ public:
 	void calcularSalarioTodos();
 	void guardarArchivo();
 	void cargarArchivo();
+	bool verificarCedula(string cedula);
 	~ListaEmpleados();
 };
 

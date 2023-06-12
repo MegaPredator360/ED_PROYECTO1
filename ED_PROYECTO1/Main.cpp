@@ -563,9 +563,6 @@ int main()
 				// Calcular Salario de todos los usuarios
 				try
 				{
-					string cedulaConsultar = "";
-					Nodo* valorActual = NULL;
-
 					system("cls");
 
 					cout << "		Consultar Salarios de todos los Empleados" << endl << endl;

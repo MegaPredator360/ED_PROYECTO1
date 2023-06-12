@@ -2,7 +2,6 @@
 
 // Constructores
 Persona::Persona(void) {}
-Persona::Persona(int i) {}
 Persona::Persona(
 	string perTipoCedula,
 	string perCedula,

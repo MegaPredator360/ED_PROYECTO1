@@ -343,7 +343,7 @@ int main()
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 9 digitos, incluir los 0)" << RESET << endl;
 							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0')
+							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0' || _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
 								_persona.setCedula(_validar.aceptarNumeros());
@@ -355,7 +355,7 @@ int main()
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
 							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12)
+							while (_persona.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
 								_persona.setCedula(_validar.aceptarNumeros());
@@ -367,7 +367,7 @@ int main()
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
 							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12)
+							while (_persona.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
 								_persona.setCedula(_validar.aceptarNumeros());
@@ -563,9 +563,6 @@ int main()
 				// Calcular Salario de todos los usuarios
 				try
 				{
-					string cedulaConsultar = "";
-					Nodo* valorActual = NULL;
-
 					system("cls");
 
 					cout << "		Consultar Salarios de todos los Empleados" << endl << endl;

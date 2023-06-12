@@ -224,6 +224,7 @@ void ListaEmpleados::cargarArchivo()
 
 bool ListaEmpleados::verificarCedula(string cedula)
 {
+	Nodo* valorAnterior = NULL;
 	valorActual = primerValor;
 
 	if (primerValor -> getValor().getCedula() == cedula)
@@ -233,6 +234,7 @@ bool ListaEmpleados::verificarCedula(string cedula)
 
 	while (valorActual != NULL && valorActual -> getValor().getCedula() != cedula)
 	{
+		valorAnterior = valorActual;
 		valorActual = valorActual->getSiguiente();
 	}
 
@@ -274,6 +276,7 @@ void ListaEmpleados::mostrarEmpleadosSimple()
 
 Nodo* ListaEmpleados::buscarEmpleados(string cedula)
 {
+	Nodo* valorAnterior = NULL;
 	valorActual = primerValor;
 
 	if (primerValor -> getValor().getCedula() == cedula)
@@ -283,6 +286,7 @@ Nodo* ListaEmpleados::buscarEmpleados(string cedula)
 
 	while (valorActual != NULL && valorActual -> getValor().getCedula() != cedula)
 	{
+		valorAnterior = valorActual;
 		valorActual = valorActual -> getSiguiente();
 	}
 

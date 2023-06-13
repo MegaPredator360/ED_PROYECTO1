@@ -22,7 +22,6 @@ private:
 public:
 	// Constructores
 	Persona(void);
-	Persona(int i);
 	Persona(
 		string perTipoCedula,
 		string perCedula,

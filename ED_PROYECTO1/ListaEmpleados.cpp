@@ -123,13 +123,24 @@ void ListaEmpleados::calcularSalarioTodos()		// Se reutiliza la mayoria por no d
 		}
 		else
 		{
+
 			while (valorActual != NULL) // Se ira por cada nodo buscando los datos para mostrarlos, se detendrá cuando un valor sea nulo o no existan más valores en la lista
 			{
 				_empleado.CalcularSalario(valorActual -> getValor());
+				
+				// Recopilación de datos para resumen
+				_empleado.setHorasTrabajoTotal(_empleado.getHorasTrabajoTotal() + _empleado.getHorasTrabajo());
+				_empleado.setHorasExtraTotal(_empleado.getHorasExtraTotal() + _empleado.getHorasExtra());
+				_empleado.setCantidadHijosTotal(_empleado.getCantidadHijosTotal() + _empleado.getCantidadHijos());
+				_empleado.setPagoSeguroTotal(_empleado.getPagoSeguroTotal() + _empleado.getPagoSeguro());
+				_empleado.setOtrosGastosTotal(_empleado.getOtrosGastosTotal() + _empleado.getOtrosGastos());
+				_empleado.setSalarioMensualTotal(_empleado.getSalarioMensualTotal() + _empleado.getSalarioMensual());
+
 				valorActual = valorActual -> getSiguiente();
 			}
 
-			cout << "--------------------------------------------------" << endl;
+			_empleado.MostrarSalarioTotal();
+
 			cout << GREEN << "¡Se han cargado los datos con exito!" << RESET << endl;
 			system("pause");
 		}
@@ -226,14 +237,14 @@ bool ListaEmpleados::verificarCedula(string cedula)
 {
 	valorActual = primerValor;
 
-	if (primerValor -> getValor().getCedula() == cedula)
+	if (primerValor != NULL && primerValor -> getValor().getCedula() == cedula)
 	{
 		return true;
 	}
 
 	while (valorActual != NULL && valorActual -> getValor().getCedula() != cedula)
 	{
-		valorActual = valorActual->getSiguiente();
+		valorActual = valorActual -> getSiguiente();
 	}
 
 	if (valorActual == NULL)

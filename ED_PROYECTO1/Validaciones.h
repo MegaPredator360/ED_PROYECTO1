@@ -26,8 +26,10 @@ public:
 	string aceptarNumeros();
 	// Generar números de telefono aleatorios
 	int numeroTelefonoAleatorio();
-	// Metodo de confirmacion que solo acepte 5 botones
+	// Metodo para confirmar una accion con Si o No, por defecto Sí
 	string confirmacionDefS();
+	// Metodo para confirmar una accion con Si o No, por defecto No
+	string confirmacionDefN();
 	// Tamaño del String para el Split
 	int tamanoString(string texto);
 };

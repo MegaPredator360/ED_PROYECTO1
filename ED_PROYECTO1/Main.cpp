@@ -18,9 +18,10 @@ int MenuPricipal(int menuOpcion)
 	cout << "	//	2) Mostrar empleados." << endl;
 	cout << "	//	3) Actualizar empleados." << endl;
 	cout << "	//	4) Eliminar empleados." << endl;
-	cout << "	//	5) Calcular salario de un empleado." << endl;
-	cout << "	//	6) Calcular salario de todos los empleados." << endl;
-	cout << "	//	7) Salir" << endl;
+	cout << "	//	5) Eliminar lista completa." << endl;
+	cout << "	//	6) Calcular salario de un empleado." << endl;
+	cout << "	//	7) Calcular salario de todos los empleados." << endl;
+	cout << "	//	8) Salir" << endl;
 	cout << "	//" << endl;
 	cout << "	////////////////////////////////////////////////////" << endl << endl << endl;
 	cout << "Seleciona una opcion:" << endl;
@@ -29,7 +30,7 @@ int MenuPricipal(int menuOpcion)
 	{
 		menuOpcion = stoi(_validar.aceptarNumeros());
 
-		while (menuOpcion <= 0 || menuOpcion >= 8)
+		while (menuOpcion <= 0 || menuOpcion >= 9)
 		{
 			cout << RED << "El número escrito no coincide con ninguna de las opciones, selecciona una de las opciones de la lista" << RESET << endl;
 			menuOpcion = stoi(_validar.aceptarNumeros());
@@ -129,11 +130,10 @@ int main()
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 9 digitos, incluir los 0)" << RESET << endl;
 							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0'	|| _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
+							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0'	|| _listaEmpleados.verificarCedula(_persona.getCedula()) != false)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado o ya existe. Vuelve a ingresar el número de cedula" << RESET << endl;
 								_persona.setCedula(_validar.aceptarNumeros());
-
 							}
 							break;
 
@@ -216,10 +216,10 @@ int main()
 
 						}
 
-						cout << "Ingrese la cantidad de horas de trabajo: " << endl;
+						cout << "Ingrese la cantidad de horas de trabajo al mes: " << endl;
 						_persona.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
 
-						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas: " << endl;
+						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas en el mes: " << endl;
 						_persona.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el puesto del empleado: " << YELLOW << "[1) Empleado, 2) Gerente]" << RESET << endl;
@@ -253,6 +253,7 @@ int main()
 						{
 							// Ya una vez que los datos son ingresados, serán enviados a la lista para ser agregados
 							_listaEmpleados.agregarEmpleados(_persona);
+							_listaEmpleados.guardarArchivo();
 							cout << GREEN << "¡El empleado ha sido agregado exitosamente!" << RESET << endl;
 							system("pause");
 						}
@@ -429,10 +430,10 @@ int main()
 
 						}
 
-						cout << "Ingrese la cantidad de horas de trabajo: " << endl;
+						cout << "Ingrese la cantidad de horas de trabajo al mes: " << endl;
 						_persona.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
 
-						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas: " << endl;
+						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas en el mes: " << endl;
 						_persona.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el puesto del empleado: " << YELLOW << "[1) Empleado, 2) Gerente]" << RESET << endl;
@@ -466,6 +467,7 @@ int main()
 						{
 							// Ya una vez que los datos son ingresados, serán actualizados mediante un los setters
 							_listaEmpleados.actualizarEmpleados(valorActual, _persona);
+							_listaEmpleados.guardarArchivo();
 							opcion = 0;
 						}
 					}
@@ -485,7 +487,7 @@ int main()
 				// Eliminar Usuarios
 				try
 				{
-					string cedulaBorrar = "";
+					string cedulaBorrar = "", confirmar = "N";
 					Nodo* valorActual = NULL;
 
 					system("cls");
@@ -493,18 +495,29 @@ int main()
 					cout << "		Eliminar Empleados " << endl << endl;
 					_listaEmpleados.mostrarEmpleadosSimple();
 
-					cout << "Ingresa el número de cedula del usuario a borrar:" << endl;
-					cedulaBorrar = _validar.aceptarNumeros();
-					valorActual = _listaEmpleados.buscarEmpleados(cedulaBorrar);
-
-					while (valorActual == NULL)
+					while (confirmar == "N")
 					{
-						cout << RED << "La cedula ingresada no fue encontrada, favor ingresar nuevamente la cedula:" << RESET << endl;
+						cout << "Ingresa el número de cedula del usuario a borrar:" << endl;
 						cedulaBorrar = _validar.aceptarNumeros();
 						valorActual = _listaEmpleados.buscarEmpleados(cedulaBorrar);
-					}
 
-					_listaEmpleados.borrarEmpleados(valorActual);
+						while (valorActual == NULL)
+						{
+							cout << RED << "La cedula ingresada no fue encontrada, favor ingresar nuevamente la cedula:" << RESET << endl;
+							cedulaBorrar = _validar.aceptarNumeros();
+							valorActual = _listaEmpleados.buscarEmpleados(cedulaBorrar);
+						}
+
+						cout << "El usuario seleccionado es: " << valorActual->getValor().getNombre() << endl;
+						cout << "¿Estas seguro de borrar este empleado? - " << RED << "La accion no se puede revertir." << RESET << " [s/N]" << endl;
+						confirmar = _validar.confirmacionDefN();
+
+						if (confirmar == "S")
+						{
+							_listaEmpleados.borrarEmpleados(valorActual);
+							_listaEmpleados.guardarArchivo();
+						}
+					}
 
 					opcion = 0;
 				}
@@ -519,6 +532,39 @@ int main()
 				break;
 
 			case 5:
+				// Borrar lista Completa
+				try
+				{
+					string confirmar;
+					system("cls");
+
+					cout << "		Eliminar lista de Empleados" << endl << endl;
+					cout << "¡Estás apunto de eliminar la lista completa de empleados registrados!" << endl;
+					cout << "¿Estás seguro de realizar está acción? - " << RED << "Está acción no se puede revertir." << RESET << " [s/N]" << endl;
+					confirmar = _validar.confirmacionDefN();
+
+					if (confirmar == "S")
+					{
+						_listaEmpleados.~ListaEmpleados();
+						_listaEmpleados.guardarArchivo();
+						cout << GREEN << "¡La lista ha sido eliminada con exito!" << RESET << endl;
+						system("pause");
+						opcion = 0;
+					}
+
+					opcion = 0;
+				}
+				catch (exception& e)
+				{
+					cout << RED << "Un error a ocurrido: " << RESET << e.what() << endl;
+					cout << RED << "---------------------------------" << RESET << endl;
+					cout << "Regresarás al menú principal" << endl;
+					system("pause");
+					opcion = 0;
+				}
+				break;
+
+			case 6:
 				// Calcular Salario individual
 				try
 				{
@@ -559,7 +605,7 @@ int main()
 				}
 				break;
 
-			case 6:
+			case 7:
 				// Calcular Salario de todos los usuarios
 				try
 				{
@@ -580,10 +626,9 @@ int main()
 				}
 				break;
 				
-			case 7:
+			case 8:
 				try
 				{
-					_listaEmpleados.guardarArchivo();
 					exit(0);
 				}
 				catch (exception& e)

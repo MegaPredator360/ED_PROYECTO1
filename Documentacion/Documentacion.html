@@ -1,46 +1,460 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indice</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <!--Colores, logo y diseño provicionales-->
-  <body>
-    <header class="header">
-      <div class="imagen">
-        <img src="img/logo_ulatina_1_light.png" alt="Logo1" />
-        <!--Usaremos un logo?-->
-      </div>
-      <nav>
-        <ul class="links">
-          <li><a class="actual">Opción 1</a></li> 
-          <li><a target="_blank " href="opcion2.html">Opción 2</a></li>
-          <li><a  target= "_blank" href="opcion3.html">Opción 3</a></li>
-        </ul>
-      </nav>
-      <a class="boton" href="#"><button hidden>Menu</button></a>
 
-      <a onclick="openNav()" class="menu" href="#"><button>Menú</button></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indice</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<!--Colores, logo y diseño provicionales-->
 
-      <div id="mobile-menu" class="overlay">
-        <a onclick="closeNav()" href="" class="close">&times;</a>
-        <div class="overlay-content">
-          <a >Opción 1</a>
-          <a href="opcion2.html" target="_blank">Opción 2</a>
-          <a href="opcion3.html" target="_blank">Opción 3</a>
-        </div>
+<body>
+  <header class="header">
+    <div class="imagen">
+      <img src="img/logo_ulatina_1_light.png" alt="Logo1" />
+      <!--Usaremos un logo?-->
+    </div>
+    <nav>
+      <ul class="links">
+        <a class="actual">Documentación</a>
+        <li><a class="paginas" href="ManualUsuario.html">Manual de Usuario</a></li>
+        <li><a class="paginas" href="AcercaDe.html">Acerca De</a></li>
+      </ul>
+    </nav>
+    <a class="boton" href="#"><button hidden>Menu</button></a>
+
+    <a onclick="openNav()" class="menu" href="#"><button>Menú</button></a>
+
+    <div id="mobile-menu" class="overlay">
+      <a onclick="closeNav()" href="" class="close">&times;</a>
+      <div class="overlay-content">
+        <a>Documentación</a>
+        <a href="ManualUsuario.html">Manual de Usuario</a>
+        <a href="AcercaDe.html">Acerca De</a>
       </div>
-    </header>
-     
-    <footer class="footer">
-         <p>Creado por: <br> Fabian Arrieta <br> Aaron Alfaro</p>
-        <P>Estructura de Datos</P>
-        <p>Universidad Latina de Costa Rica</p>
-        </footer>
-     <script type="text/javascript" src="nav.js"></script>
-  </body>
- 
+    </div>
+  </header>
+  <!-- Barra de Navegación con contenido del indice -->
+  <ul class="navbar" id="navbar">
+    <li><a href="#home">Índice</a></li>
+    <li><a href="#news">Main</a></li>
+    <li><a href="#contact">ListaEmpleados</a></li>
+    <li><a href="#about">Nodo</a></li>
+    <li><a href="#about">Empleado</a></li>
+    <li><a href="#about">Persona</a></li>
+    <li><a href="#about">Validaciones</a></li>
+  </ul>
+
+  <div class="content">
+    <div class="contenido">
+      <h3>Índice</h3>
+    </div>
+    <div class="contenido">
+      <h3>
+        1 - Main.cpp
+      </h3>
+      <p>
+        En Main.cpp encontrarás 2 funciones, una llamada <a>int MenuPrincipal(int menuOpcion)</a> y <a>int main()</a>.
+        En este archivo es donde se realizará la ejecución del programa y de donde el usuario interactuará con el
+        programa.
+      </p>
+      </br>
+      <h4>
+        1.1 - int MenuPrincipal(int menuOpcion)
+      </h4>
+      <p>
+        Este metodo es la encargado de desplegar las opciones del menú principal y que en usuario escoja que acción
+        quiere realizar dentro del programa,
+        la función tiene un <b>Try - Catch</b> para prevenir posibles errores en caso de que el programa tenga algún
+        posible
+        error.
+        Para que el usuario seleccione una opción, la variable <b>menuOpcion</b> va a ser igualada al resultado de la
+        función
+        <a>aceptarNumeros()</a>,
+        y después de que <b>menuOpcion</b> allá recibido esos datos, pasará por un ciclo <b>while</b> en donde si el
+        valor que el
+        usuario inserta no es válido,
+        se le pedirá que vuelva a ingresar una opción hasta que ingrese una opción válida y después se le retornará la
+        opción seleccionada con la variable <b>menuOpcion</b>.
+        En caso de que se active el <b>Try - Catch</b> mostrará el mensaje de error y retornará el valor de
+        <b>menuOpcion = 0</b> para
+        que el usuario vuelva a seleccionar una opción.
+      </p>
+      </br>
+      <h4>
+        1.2 - int main()
+      </h4>
+      <p>
+        Este metodo será donde se ejecute el programa, al iniciar el programa el usuario será bienvenido con una
+        pantalla de titulo del programa,
+        y se le será que pulse cualquier tecla pará iniciar. En la línea 52 del archivo, estará esta función llamada
+        <b>setlocale(LC_ALL, "");</b>
+        que será la encargada de permitir que el programa muestre caracteres especiales como las aperturas de los signos
+        de interrogación
+        o exclamación.</br>Más abajo encontraremos que estamos llamando a 3 clases: <a>Persona</a>,
+        <a>ListaEmpleados</a> y <a>Validaciones</a>, y declaramos una variable <b>opcion</b>,
+        esta ultima será la encargada de llevar la opción seleccionada por el usuario en <a>int MenuPrincipal(int
+          menuOpcion)</a>,
+        después se ejecutará la función de <a>cargarArchivo()</a>, y después se iniciará el ciclo <b>while</b> donde si
+        <b>opcion = 0</b>,
+        se iniciara la función de <a>int MenuPrincipal(int menuOpcion)</a> y lo que retorne será almacenado en
+        <b>opcion</b>,
+        y después se inicializará un <b>switch</b> donde se tomará en cuenta el valor que lleve opción.
+      </p>
+      </br>
+      <h4>
+        1.2.1 - Agregar Empleados
+      </h4>
+      <p>
+        Sí <b>opcion = 1</b> se inicializará este metodo para agregar empleados al sistema, dentro de un <b>Try –
+          Catch</b> se declaran varias variables
+        que ayudarán en el proceso de llenado de datos. Después de las declaraciones de variables se iniciará un ciclo
+        <b>while</b> donde si
+        <b>confirmacion == "N"</b> tendrás que llenar el formulario, se le pedirá al usuario que ingrese un tipo de
+        cedula.</br>
+        <img src="./img/1-2-1_TipoCedula.png" class="alignCenterImage">
+        La variable <b>numTipoCedula</b> será igualado al resultado del metodo <a>aceptarNumeros()</a> y después pasará
+        a un ciclo <b>while</b>
+        donde si el usuario ingresa una opción donde no es válida se le solicitará al usuario que vuelva a ingresar el
+        tipo de cedula.</br>
+        Después de haber ingresado una opción válida, pasara en un <b>switch</b> donde se validará el valor de
+        <b>numTipoCedula</b>, si el usuario ingresa 1,
+        se le hará un set al <b>TipoCedula</b> de la clase <a>Persona</a>, y será igual a Nacional, después se le
+        solicitará que ingrese el número de cedula,
+        teniendo en cuenta las validaciones establecidas en el <b>cout</b>, después se hará un set a <b>Cedula</b> de la
+        clase <a>Persona</a> y ejecuta el metodo
+        de <a>aceptarNumeros()</a> después de que el usuario halla ingresado el dato se iniciará un ciclo <b>while</b>
+        donde se validará que la
+        cantidad de digitos sea igual a 9, que los 0 se encuentren ubicados en los lugares correctos y que la cedula no
+        haya sido registrada previamente
+        en el sistema mediante la función de <a>verificarCedula(string cedula)</a>, al incumplir alguna de esas
+        condiciones se le pedirá al usuario que vuelva a
+        ingresar al número de cedula, si el usuario elige que <b>numTipoCedula = 2</b>, el Tipo de Cedula será igual a
+        Jurídica y se validara nuevamente si la
+        cedula ya fue registrada mediante el metodo de <a>verificarCedula(string cedula)</a>, y que contenga 12 números,
+        y si el usuario elige que <b>numTipoCedula = 3</b> el
+        Tipo de Cedula será extranjera, y contará con las mismas validaciones que <b>numTipoCedula = 2</b>.</br>
+        Después se le pedirá al usuario que ingrese el nombre completo del empleado, la nacionalidad, y donde es que
+        reside.</br>
+        El número de teléfono será generado de forma automática mediante el metodo de <a>numeroTelefonoAleatorio()</a>,
+        después se le pedirá que
+        ingrese la cantidad de hijos y su estado civil actual, al igual que con el tipo de cedula, se llamará al metodo
+        de <a>aceptarNumeros()</a>,
+        y el valor retornado se validará si la opción que ingresa es válida dentro de las opciones del Estado Civil, de
+        lo contrario pasará
+        por un ciclo <b>while</b> solicitándole al usuario que ingrese una opción válida, después pasará por un
+        <b>switch</b> donde se validará la opción
+        ingresada para el estado civil, y dependiendo del valor de <b>numEstadoCivil</b>, se le hará un set a
+        <b>EstadoCivil</b>, después se le pedirá que
+        ingrese la cantidad de horas de trabajo al mes, las horas extras acumuladas del mes y el puesto del empleado, y
+        harán uso del metodo <a>aceptarNumeros()</a>
+        y al igual que en casos similares, la opcion que el usuario le asignó a <b>numTipoEmpleado</b> será validado,
+        mediante un ciclo <b>while</b> y
+        después pasará por un <b>switch</b> que asignará el tipo de empleado a la clase <a>Persona</a>.</br>
+        Una vez que el usuario halla terminado de ingresar los datos se le preguntará si los datos ingresados son
+        correctos,
+        para eso se iniciará el metodo de <a>confirmacionDefS()</a> y el valor retornado se almacenará en
+        <b>confirmacion</b>,
+        en caso de que sean correctos los datos se inicia el metodo de <a>agregarEmpleados(Persona p)</a> donde se
+        almacenarán los datos en un nodo,
+        si los datos ingresados no son correctos, se iniciará un ultimo metodo <a>guardarArchivo()</a> que guardará a su
+        vez los datos de los nodos
+        en un archivo volverá al inicio del ciclo, una vez terminado el ciclo, se definirá <b>opcion = 0</b> para
+        regresar al Menú Principal.
+      </p>
+      </br>
+      <h4>
+        1.2.2 - Mostrar Empleados
+      </h4>
+      <p>
+        En esta opción se mostraran todos los usuarios registrados en el sistema, por lo que se inicializará el metodo
+        <a>mostrarEmpleadosCompleto()</a>,
+        una mostrados los datos, el usuario deberá pulsar cualquier tecla para continuar y <b>opcion = 0</b> para ser
+        regresado al menú principal.
+      </p>
+      </br>
+      <h4>
+        1.2.3 - Actualizar Empleados
+      </h4>
+      <p>
+        En esta opción se inicializa el metodo <a>mostrarEmpleadosSimple()</a> para ayudar al usuario a encontrar que se
+        quiere actualizar de una forma más eficiente,
+        después se le preguntará el número de cedula del usuario y lo ingresa con el metodo <a>aceptarNumeros()</a> y
+        una vez ingresado los datos se buscará al empleado
+        mediante el metodo <a>buscarEmpleados(string cedula)</a> y retornará los datos de ese empleado y se almacenaran
+        en la variable <b>valorActual</b> que pertenece
+        a la clase de <a>Nodo</a>, si el metodo regresa un valor nulo significa que ese usuario no fue encontrado por lo
+        que pasará por un ciclo <b>while</b> donde
+        se le pedirá la cedula otra vez, hasta que retorne el empleado que se le solicitó.</br>
+        Una vez encontrado el empleado, se le pedirá al usuario que ingrese la información por la cual va a ser
+        actualizada, apartir de acá se utilizará el mismo
+        sistema para ingresar los datos que se utilizo para <a>Agregar Empleados</a>.</br>
+        Cuando el usuario termine de ingresar los datos y confirmar que los datos han sido correctamente ingresados, se
+        inicializará el metodo <a>actualizarEmpleados(Nodo* valorModificar, Persona p)</a>
+        donde va a recibir el nodo que se va a actualizar y la clase <a>Persona</a> con los datos serán cambiados del
+        nodo,
+        una vez terminado el metodo se iniciará el metodo <a>guardarArchivo()</a> para actualiza los datos del nodo en
+        el archivo, y <b>opcion = 0</b> para poder regresar al menú principal.
+      </p>
+      </br>
+      <h4>
+        1.2.4 - Borrar Empleados
+      </h4>
+      <p>
+        Al igual que en <a>Actualizar Empleados</a>, se le inicializará el metodo <a>mostrarEmpleadosSimple()</a> y se
+        le solicitará la cedula del
+        empleado que se quiere borrar mediante el metodo <a>aceptarNumeros()</a>, y después se buscará al empleado en el
+        metodo <a>buscarEmpleados(string cedula)</a>, una vez encontrado
+        se le preguntará al usuario si quiere confirmar en borrar al empleado mediante el metodo
+        <a>confirmacionDefN()</a> si el usuario confirma en borrar al empleado
+        de la lista se ejecutará el metodo <a>borrarEmpleados(Nodo* valorBorrar)</a> donde se le enviará el nodo del
+        empleado que se va a borrar,
+        y por ultimo, se inicializa el metodo de <a>guardarArchivo()</a> que guardará los cambios en el archivo y
+        <b>opcion = 0</b> para poder regresar al menú principal.
+      </p>
+      </br>
+      <h4>
+        1.2.5 - Borrar Lista de Empleados
+      </h4>
+      <p>
+        En esta opción se borrarán todos los empleados registrados en el sistema, por lo que se le pregunta al usuario
+        si
+        de verdad quiere borrar la lista de empleados mediante el metodo <a>confirmacionDefN()</a>, si el usuario
+        confirma
+        en realizar esa accion, se inicializará el destructor de la clase <a>ListaEmpleados</a> que se encargará de
+        borrar
+        toda de empleados, y <b>opcion = 0</b> para regresar al menú principal.
+      </p>
+      </br>
+      <h4>
+        1.2.6 - Calcular Salario Mensual de un Empleado
+      </h4>
+      <p>
+        De igual forma que con <a>Actualizar Empleados</a> y <a>Borrar Empleados</a> se inicializará el metodo
+        <a>mostrarEmpleadosSimple()</a>
+        y después se le pedirá que ingrese el numero de cedula en el metodo <a>aceptarNumeros()</a>, una vez ingresados
+        los datos se buscará
+        al empleado mediante el metodo <a>buscarEmpleados(string cedula)</a> y su resultado será almacenado en la
+        variable de <b>valorActual</b>
+        de la clase de <a>Nodo</a>, si el valor que regresa el metodo es null entonces significa que el usuario no fue
+        encontrado,
+        por lo que pasará por el ciclo <b>while</b> y se le solicitará que vuelva a ingresar la cedula hasta que el
+        empleado sea encontrado.</br>
+        Ya encontrado el empleado se inicializará el metodo <a>calcularSalarioIndividual(Nodo* valorConsultar)</a> que
+        se le enviará el nodo
+        del empleado con la información para realizar los calculos del salario, cuando se termina de ejecutar el metodo,
+        el usuario pulsará
+        cualquier tecla para avanzar y <b>opcion = 0</b> para regresar al menú principal del sistema.
+      </p>
+      </br>
+      <h4>
+        1.2.7 - Calcular Salario Mensual de todos los Empleados
+      </h4>
+      <p>
+        Para está opción se inicializará únicamente el metodo <a>calcularSalarioTodos()</a> que será el encargado de
+        calcular todos los salarios
+        de todos los empleados registrados en el sistema, una vez el metodo termine de ejecutarse al final al usuario se
+        le presentará un resumen
+        con los totales de todos los pagos que se realizarán, el usuario deberá pulsar cualquier tecla para continuar y
+        <b>opcion = 0</b> para regresar al menú principal.
+      </p>
+      </br>
+      <h4>
+        1.2.8 - Salir
+      </h4>
+      <p>
+        Si el usuario escoje esta opción, el programa terminará de ejecutarse mediante el metodo <b>exit(0)</b>.
+      </p>
+    </div>
+    <div class="contenido">
+      <h3>
+        2 - ListaEmpleados
+      </h3>
+      <p>
+        Esta clase es la encargada de realizar varios de los procesos donde se tomarán en cuenta a los empleados que han
+        sido registrados en el sistema además de guardar todos los nodos creados. En esta clase se crearán 2 tipos
+        de variables de la clase <a>Nodo</a>, que son <b>primerValor</b> y <b>valorActual</b>, el primero será la
+        encargada de contener los datos del primer empleado de la lista mientras que <b>valorActual</b>, será usada para
+        contener cualquier nodo de la lista, este dato tendrá uso cuando se requieran agregar empleados, buscar por
+        empleados o eliminar empleados. Esta lista estará ordenada según el número de cedula del empleado.
+      </p>
+      </br>
+      <h4>
+        2.1 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.2 - agregarEmpleados(Persona p)
+      </h4>
+      <p>
+        Este metodo se usará para agregar los datos de los empleados a los nodos, esta requiere un dato de tipo <a>Persona</a> 
+        que contendrá los datos ingresados por el usuario para ser agregados en la lista. Al iniciar se igualará 
+        <b>valorActual</b> con <b>primerValor</b> indicando que ahí en donde se iniciará a buscar los campos en la lista. Se entrará a 
+        un <b>if</b> donde se validará si <b>primerValor != null</b> (Si tiene algún valor registrado) o si el número de cedula que tiene 
+        en el dato es mayor al número de cedula que vamos a ingresar, al llegarse a cumplir alguna de estás 2 condiciones los 
+        quedarán guardados en <b>primerValor</b>, si ya hubieran datos registrados en la variable, simplemente esos se mueven al 
+        siguiente puesto mientras que en <b>primerValor</b> se ingresan los nuevos datos, si no se cumplen ninguna de estas 2 condiciones 
+        el programa entrará en un <b>while</b> donde <b>valorActual</b> tomará los datos del siguiente nodo. El ciclo se detendrá una vez que 
+        llegue a un valor que no sea nulo y que su número de cedula sea igual o menor que la cedula que fue ingresada por el usuario 
+        en registro. Una vez encontrado el nodo indicado, moverá los datos de ese nodo al siguiente nodo y los datos se registrarán 
+        en ese nodo y quedarán guardados en memoria.
+      </p>
+      </br>
+      <h4>
+        2.3 - actualizarEmpleados(Nodo* valorModificar, Persona p)
+      </h4>
+      <p>
+        Este metodo estará encargado de remplazar los datos un nodo que el usuario escoge con datos nuevos, esta metodo debe recibir 2 variables, 
+        <b>valorModificar</b> del tipo <a>Nodo*</a> que será el nodo exacto a modificar, este dato proviene del valor que retorna la función 
+        <a>buscarEmpleados(string cedula)</a> y la otra variable que se necesita es <b>p</b> del tipo <a>Persona</a>, que continienen los nuevos datos que remplazarán al nodo 
+        en cuestión. Mediante el método de <a>setValor()</a>, los datos del nodo podrán ser remplazados.
+      </p>
+      </br>
+      <h4>
+        2.4 - mostrarEmpleadosCompleto()
+      </h4>
+      <p>
+        Este metodo se encargará de buscar a todos los usuarios que están registrados en el sistema, y los valores que se obtienen de cada 
+        nodo serán enviados a un metodo <a>MostrarPersona()</a> que será el encargado de mostrar los datos de ese nodo en la consola.
+        </br>
+        Al iniciar <b>valorActual</b> será igualado a <b>primerValor</b>, esto servirá como un punto de partida para ir por cada nodo para mostrar 
+        los datos, en caso de que no hallan empleados registrados en el sistema, se activará el <b>Try - Catch</b> y se le mandará un mensaje de error 
+        indicando que no hay empleados registrados en el sistema.
+      </p>
+      </br>
+      <h4>
+        2.5 - borrarEmpleados(Nodo* valorBorrar)
+      </h4>
+      <p>
+        Este metodo será el encargado de borrar los datos de un nodo, y para esto el metodo recibe una variable <b>valorBorrar</b> de tipo <a>Nodo*</a> que 
+        contiene el nodo deseado a borrar, estos datos provienen del valor que retorna de el metodo <a>buscarEmpleados(string cedula)</a>.
+        </br>
+        Al iniciar el metodo <b>valorActual</b> será igualado con <b>primerValor</b>, después de verificará que <b>primerValor</b> coincide con los datos de 
+        <b>valorBorrar</b>, de ser así a <b>valorActual</b> se le asignaran los datos del siguiente nodo (El nodo después del primero), y se borrarán 
+        los datos de <b>primerValor</b>, y después <b>primerValor</b> será igualados con los datos de <b>valorActual</b>, convirtiéndose en el nuevo primer nodo 
+        y se utiliza el <b>return</b> para terminar de ejecutar el metodo.
+        </br>
+        Si <b>primerValor</b> no coincide con los datos de <b>valorBorrar</b>, simplemente se borrarán los datos que coincidan con <b>valorBorrar</b> y la función se termina de ejecutar.
+      </p>
+      </br>
+      <h4>
+        2.6 - calcularSalarioIndividual(Nodo* valorConsultar)
+      </h4>
+      <p>
+        Este metodo se encargará de enviar los datos del nodo para calcular el salario de un empleado en específico por lo que recibe los 
+        datos bajo la variable <b>valorConsular</b> de tipo <a>Nodo*</a>, estos datos provienen del dato que retorna la función <a>buscarEmpleados(string cedula)</a>.
+        </br>
+        Se crea una variable de tipo <a>Empleado</a>, esto ayudará a realizar la inicialización del metodo <a>CalcularSalario()</a>, y se le enviaran 
+        los datos de <b>valorConsultar</b> para que pueda calcular los datos de ese empleado.
+      </p>
+      </br>
+      <h4>
+        2.7 - calcularSalarioTodos()
+      </h4>
+      <p>
+        Al igual que el metodo <a>calcularSalarioIndividual(Nodo* valorConsultar)</a>, este metodo mandará los datos del nodo al metodo <a>CalcularSalario()</a> de forma individual, 
+        la diferencia siendo que en lugar de solo mandar uno en específico, mandaran todos los datos de todos los nodos mediante un ciclo <b>while</b>,
+        similar a como funciona el metodo <a>mostrarEmpleadosCompleto()</a> o <a>mostrarEmpleadosSimple()</a>.
+        </br>
+        Además con ayuda de una variable de tipo <a>Empleado</a> podemos tomar los resultados de los calculos individuales y concatenarlos para
+        mostrar al final un resumen que muestra todos los datos totales mediante el metodo <a>MostrarSalarioTotal()</a>.
+      </p>
+      </br>
+      <h4>
+        2.8 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.9 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.10 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.11 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.12 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+      </br>
+      <h4>
+        2.13 - ListaEmpleados()
+      </h4>
+      <p>
+        Este es el constructor de la clase... cuando se inicia el programa variables del tipo <a>Nodo</a>
+        <b>primerValor</b>
+        y <b>valorActual</b> será nulas, esto es más que todo para asegurarse que no haya ningún nodo en memoria con
+        datos
+        a la hora de empezar a hacer uso del programa y evitar conflictos si se agregan datos a los nodos.
+      </p>
+    </div>
+    <div class="contenido">
+      <h3>Índice</h3>
+    </div>
+    <div class="contenido">
+      <h3>Índice</h3>
+    </div>
+    <div class="contenido">
+      <h3>Índice</h3>
+    </div>
+    <div class="contenido">
+      <h3>Índice</h3>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Creado por: <br> Fabian Arrieta <br> Aaron Alfaro</p>
+    <P>Estructura de Datos</P>
+    <p>Universidad Latina de Costa Rica</p>
+  </footer>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

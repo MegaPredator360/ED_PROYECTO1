@@ -114,7 +114,7 @@ int main()
 					{
 						system("cls");
 						cout << "			Agregar Empleados" << endl << endl;
-						cout << "¿Que tipo de cedula tiene el empleado? " << YELLOW << " [1) Nacional, 2) Juridica, 3) Extranjero]" << RESET << endl;
+						cout << "¿Que tipo de cedula tiene el empleado? " << YELLOW << "[1) Nacional, 2) Juridica, 3) Extranjero]" << RESET << endl;
 						numTipoCedula = stoi(_validar.aceptarNumeros());
 
 						while (numTipoCedula <= 0 || numTipoCedula >= 4)

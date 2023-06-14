@@ -166,15 +166,37 @@ int main()
 						}
 
 						cout << "Ingrese el nombre completo del empleado:" << endl;
+
 						getline(cin, Nombre);
+
+						while (Nombre == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar el nombre del empleado:" << RESET << endl;
+							getline(cin, Nombre);
+						}
+						
 						_persona.setNombre(Nombre);
 
 						cout << "Ingrese la nacionalidad: " << endl;
 						getline(cin, Nacionalidad);
+
+						while (Nacionalidad == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar la nacionalidad del empleado:" << RESET << endl;
+							getline(cin, Nacionalidad);
+						}
+
 						_persona.setNacionalidad(Nacionalidad);
 
 						cout << "Ingrese la residencia: " << endl;
 						getline(cin, Residencia);
+
+						while (Residencia == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar la residencia del empleado:" << RESET << endl;
+							getline(cin, Residencia);
+						}
+
 						_persona.setResidencia(Residencia);
 
 						cout << "Ingrese el telefono: " << endl;
@@ -381,14 +403,35 @@ int main()
 
 						cout << "Ingrese el nombre completo del empleado:" << endl;
 						getline(cin, Nombre);
+
+						while (Nombre == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar el nombre del empleado:" << RESET << endl;
+							getline(cin, Nombre);
+						}
+
 						_persona.setNombre(Nombre);
 
 						cout << "Ingrese la nacionalidad: " << endl;
 						getline(cin, Nacionalidad);
+
+						while (Nacionalidad == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar la nacionalidad del empleado:" << RESET << endl;
+							getline(cin, Nacionalidad);
+						}
+
 						_persona.setNacionalidad(Nacionalidad);
 
 						cout << "Ingrese la residencia: " << endl;
 						getline(cin, Residencia);
+
+						while (Residencia == "")
+						{
+							cout << RED << "El espacio está vacio, desbes de ingresar la residencia del empleado:" << RESET << endl;
+							getline(cin, Residencia);
+						}
+
 						_persona.setResidencia(Residencia);
 
 						cout << "Ingrese el telefono: " << endl;

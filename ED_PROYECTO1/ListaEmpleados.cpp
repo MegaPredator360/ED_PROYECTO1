@@ -71,6 +71,7 @@ void ListaEmpleados::borrarEmpleados(Nodo* valorBorrar)
 {
 	try
 	{
+		Nodo* valorAnterior = NULL;
 		valorActual = primerValor;
 
 		if (primerValor == valorBorrar)	// Revisará si el primer empleado coincide con la cedula recibida
@@ -83,9 +84,25 @@ void ListaEmpleados::borrarEmpleados(Nodo* valorBorrar)
 			return;
 		}
 
-		delete valorBorrar;
-		cout << GREEN << "¡El empleado ha sido eliminado con exito!" << RESET << endl;
-		system("pause");
+		while (valorActual != NULL && valorActual -> getValor().getCedula() != valorBorrar -> getValor().getCedula())
+		{
+			valorAnterior = valorActual;
+			valorActual = valorActual -> getSiguiente();
+		}
+
+		if (valorActual == NULL)
+		{
+			throw exception("Hubo un error al borrar el empleado");
+			return;
+		}
+		else
+		{
+			valorAnterior -> setSiguienteNodo(valorActual -> getSiguiente());
+			delete valorActual;
+			cout << GREEN << "¡El empleado ha sido eliminado con exito!" << RESET << endl;
+			system("pause");
+			return;
+		}
 	}
 	catch (exception& e)
 	{

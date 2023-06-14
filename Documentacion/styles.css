@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Tajawal", sans-serif;
+  font-family: "UbuntuFont";
   font-size: 30px;
+}
+
+@font-face {
+  font-family: UbuntuFont;
+  src: url(./Ubuntu-L.ttf);
 }
 
 body {
@@ -85,6 +88,8 @@ body {
   background-color: rgb(0, 97, 43);
   text-align: center;
   font-style: normal;
+  margin-top: 10px;
+  color: white;
 }
 
 .header a {
@@ -139,7 +144,6 @@ body {
   background-color: white;
   padding: 0px 5px 0px 5px;
   box-shadow: 2px 2px rgb(93, 133, 111);
-  margin-right: 5px;
 }
 
 .paginas {
@@ -178,6 +182,7 @@ body {
   padding: 10px 10px;
   text-decoration: none;
   font-size: 25px;
+  transition: 200ms ease-in-out;
 }
 
 .navbar li {
@@ -186,6 +191,7 @@ body {
 
 .navbar li a:hover:not(.active) {
   background-color: #111;
+  transition: 200ms ease-in-out;
 }
 
 .content {
@@ -228,10 +234,19 @@ body {
   background-color: #dfdede;
   padding: 0px 3px 0px 3px;
   font-size: 25px;
-  border-radius: 15px;
+  border-radius: 10px;
   border-color: #8d8c8c;
   border-style: solid;
   border-width: 1px;
+  text-decoration: none;
+  color: #111;
+  transition: 200ms ease-in-out;
+}
+
+.contenido a:hover{
+  background-color: #b9b9b9;
+  border-color: #747373;
+  transition: 200ms;
 }
 
 /* Otras Clases */
@@ -239,6 +254,14 @@ body {
 .alignCenterImage {
   display: block;
   margin: 10px auto 10px auto;
+}
+
+.imageSize {
+  width: 75%;
+}
+
+.centerText {
+  text-align: center;
 }
 
 @media screen and (max-height: 450px) {
@@ -250,5 +273,16 @@ body {
     top: 15px;
     right: 35px;
   }
+}
+
+/* Tabulacion */
+.tab1 {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.tab2 {
+  display: inline-block;
+  margin-left: 80px;
 }
 

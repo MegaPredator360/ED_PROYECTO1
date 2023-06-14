@@ -1,46 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manual de Uuario</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <!--Colores, logo y diseño provicionales-->
-  <body>
-    <header class="header">
-      <div class="imagen">
-        <img src="img/logo_ulatina_1_light.png" alt="Logo1" />
-        <!--Usaremos un logo?-->
-      </div>
-      <nav>
-        <ul class="links">
-          <li><a target="_blank" href="index.html">Opción 1</a></li>
-          <li><a class="actual">Opción 2</a></li>
-          <li><a  target= "_blank" href="opcion3.html">Opción 3</a></li>
-        </ul>
-      </nav>
-      <a class="boton" href="#"><button hidden>Menu</button></a>
 
-      <a onclick="openNav()" class="menu" href="#"><button>Menú</button></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Usuario</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./img/favicon.ico">
+</head>
+<!--Colores, logo y diseño provicionales-->
 
-      <div id="mobile-menu" class="overlay">
-        <a onclick="closeNav()" href="" class="close">&times;</a>
-        <div class="overlay-content">
-          <a target="_blank" href="index.html">Opción 1</a>
-          <a href="#">Opción 2</a>
-          <a href="opcion3.html" target="_blank">Opción 3</a>
-        </div>
+<body>
+  <header class="header">
+    <div class="imagen">
+      <img src="img/logo_ulatina_1_light.png" alt="Logo1" />
+      <!--Usaremos un logo?-->
+    </div>
+    <nav>
+      <ul class="links">
+        <a class="paginas" href="Documentacion.html">Documentación</a>
+        <a class="actual" href="ManualUsuario.html">Manual de Usuario</a>
+        <a class="paginas" href="AcercaDe.html">Acerca De</a>
+      </ul>
+    </nav>
+    <a class="boton" href="#"><button hidden>Menu</button></a>
+
+    <a onclick="openNav()" class="menu" href="#"><button>Menú</button></a>
+
+    <div id="mobile-menu" class="overlay">
+      <a onclick="closeNav()" href="" class="close">&times;</a>
+      <div class="overlay-content">s
+        <a href="Documentacion.html">Documentación</a>
+        <a href="ManualUsuario.html">Manual de Usuario</a>
+        <a href="AcercaDe.html">Acerca De</a>
       </div>
-    </header>
-     
-    <footer class="footer">
-         <p>Creado por: <br> Fabian Arrieta <br> Aaron Alfaro</p>
-        <P>Estructura de Datos</P>
-        <p>Universidad Latina de Costa Rica</p>
-        </footer>
-     <script type="text/javascript" src="nav.js"></script>
-  </body>
- 
+    </div>
+  </header>
+  <ul class="navbar" id="navbar">
+    <li><a href="#indice" onclick="redirigirIndice()">Índice</a></li>
+    <li><a href="#requisitos" onclick="redirigirRequisitos()">Requisitos</a></li>
+    <li><a href="#instalacion" onclick="redirigirInstalacion()">Instalación</a></li>
+    <li><a href="#funcionamiento" onclick="redirigirFuncionamiento()">Funcionaniento</a></li>
+    <li><a href="#descripcion" onclick="redirigirDescripcion()">Descripción</a></li>
+  </ul>
+  <div class="content">
+    <div class="contenido">
+      <h3 id="1indice">
+        Índice
+      </h3>
+      </br>
+      <p>
+        1 - <a href="#requisitos" onclick="redirigirRequisitos()">Requisitos</a>
+        </br>
+        2 - <a href="#instalacion" onclick="redirigirInstalacion()">Instalación</a>
+        </br>
+        3 - <a href="#funcionamiento" onclick="redirigirFuncionamiento()">Funcionaniento</a>
+        </br>
+        4 - <a href="#descripcion" onclick="redirigirDescripcion()">Descripción</a>
+      </br>
+        <p class="tab1">
+          4.1 - <a href="#descripcionAgregar" onclick="redirigirDescripcionAgregar()">Agregar Empleados</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.2 - <a href="#descripcionMostrar" onclick="redirigirDescripcionMostrar()">Mostrar Empleados</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.3 - <a href="#descripcionActualizar" onclick="redirigirDescripcionActualizar()">Actualizar Empleados</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.4 - <a href="#descripcionBorrar" onclick="redirigirDescripcionBorrar()">Borrar Empleados</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.5 - <a href="#descripcionBorrarLista" onclick="redirigirDescripcionBorrarLista()">Borrar Lista</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.6 - <a href="#descripcionCalcularIndividual" onclick="redirigirDescripcionCalcularIndividual()">Calcular el salario de un empleado en especifico</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.7 - <a href="#descripcionCalcularTodos" onclick="redirigirDescripcionCalcularTodos()">Calcular el salario de todos los empleados</a>
+        </p>
+        </br>
+        <p class="tab1">
+          4.8 - <a href="#descripcionSalir" onclick="redirigirDescripcionSalir()">Salir</a>
+        </p>
+      </p>
+    </div>
+    <div class="contenido">
+      <h3 id="1requisitos">
+        1 - Requisitos
+      </h3>
+      <p>
+        Para poder ejecutar este proyecto necesitas:
+        </br>
+        - Tener instalado Visual Studio Community 2022 o una versión más reciente.
+        </br>
+        - Tener instalado en Visual Studio 2022 la carga de trabajo "Desarrollo para el escritorio con C++".
+        </br>
+        <img class="alignCenterImage imageSize" src="./img/CargaTrabajo.png">
+      </p>
+    </div>
+    <div class="contenido">
+      <h3 id="1instalacion">
+        2 - Instalación
+      </h3>
+      <p>
+        Para instalar el programa puedes ya sea descargar una copia del código fuente en formato .zip, extraerlo y abrir
+        la solución (El archivo .sln) en Visual Studio, o puedes abrir Visual Studio, seleccionar la opción que dice
+        "Clonar Repositorio".
+        </br>
+        <img class="alignCenterImage imageSize" src="./img/ClonarRepositorio.png">
+        Copias el link del repositorio, lo pegas, y le das aceptar, Visual Studio se encargará de descargar los
+        archivos del repositorio, una vez se haya terminado de realizar el proceso, puedes ejecutar el proyecto, o ver
+        cómo está construido el código.
+      </p>
+    </div>
+    <div class="contenido">
+      <h3 id="1funcionamiento">
+        3 - Funcionamiento del Programa
+      </h3>
+      <p>
+        El programa se encargará de almacenar, modificar, mostrar y borrar empleados y almacenarlos en una lista, con
+        este programa podrás calcular salarios mensuales de cada empleado basado en el tipo de puesto del empleado, la
+        cantidad de horas que trabaja al mes, la cantidad de horas extras que se acumulado durante el mes, la cantidad
+        de hijos que ese empleado(a) tenga, una vez que se hayan registrado los empleados y salgas del programa del
+        programa, los datos se guardarán en un archivo llamado datosEmpleado.dat, y una vez que inicies el programa
+        nuevamente, el programa leerá los datos de ese archivo y los guardará nuevamente en memoria.
+      </p>
+    </div>
+    <div class="contenido">
+      <h3 id="1descripcion">
+        4 - Descripción del Programa
+      </h3>
+      <p>
+        Cuando inicies el programa, se te presentará esta pantalla, para avanzar debes del pulsar cualquier tecla para
+        continuar y se te presentará con en esté menú, solo pulsa el número que corresponda a la opción que quieras
+        entrar.
+      </p>
+      </br>
+      <h4 id="11descripcion">
+        4.1 - Agregar Empleados
+      </h4>
+      <p>
+        Para registrar un empleado al sistema se le solicitará la siguiente información:
+        </br>
+        - ¿Qué tipo de cedula tiene? Si es Nacional, Jurídica, o Extranjero, debes el pulsar el número que corresponde
+        con la opción del tipo de cedula.
+        </br>
+        - El número de cedula, deberá de ingresar la cedula de acuerdo al tipo de cedula que escogiste, se verificará
+        que el formato sea de acuerdo al tipo de cedula escogido, si la cedula que vas a ingresar al sistema ya ha sido
+        guardada en la lista previamente.
+        </br>
+        - El nombre completo del empleado(a).
+        </br>
+        - La nacionalidad del empleado(a).
+        </br>
+        - Donde reside el empleado(a).
+        </br>
+        - Cuántos hijos tiene el empleado(a).
+        </br>
+        - El Estado Civil del empleado(a), deberás pulsar el número que corresponda con las opciones del Estado Civil
+        que se te presentan.
+        </br>
+        - Las horas de trabajo mensuales.
+        </br>
+        - Las horas de trabajo extras acumuladas durante el mes.
+        </br>
+        - ¿Qué tipo de empleado es? Si es empleado en Empleado Común, o si es un Gerente, deberás de pulsar el número
+        que corresponda con la opción que del tipo de empleado.
+        </br>
+        Una vez llenados todos esos datos… Se le preguntará que, si los datos ingresados han sido correctos, solo
+        deberás de pulsar la tecla “S” para Sí, o “N” para No, en caso de que los datos que hayan sido ingresados no son
+        los correctos, se le solicitará volver a llenar los datos, una vez que confirmes que los datos son correctos,
+        los datos serán guardados en una lista y serás redirigido al menú principal.
+      </p>
+      </br>
+      <h4 id="12descripcion">
+        4.2 - Mostrar Empleados
+      </h4>
+      <p>
+        En esta opción se te mostrará una lista de todos los empleados que han sido registrados en el sistema, con todos
+        los detalles de los empleados.
+      </p>
+      </br>
+      <h4 id="13descripcion">
+        4.3 - Actualizar Empleados
+      </h4>
+      <p>
+        En esta opción podrás cambiar los datos de un empleado en específico que ya este registrado en el sistema, al
+        inicio se te mostrará una lista en la que te mostrará un número de cedula y el nombre del empleado
+        perteneciente, y se te solicitará que ingreses el número de cedula del empleado que quiera modificar, una vez
+        que haya ingresado el número de cedula correctamente, se te solicitarán los mismos datos que cuando agregaste un
+        usuario.
+      </p>
+      </br>
+      <h4 id="14descripcion">
+        4.4 - Borrar Empleados
+      </h4>
+      <p>
+        Para borrar un empleado de la lista, se le mostrará al usuario una lista de los usuarios que están registrados
+        mostrando su número de cedula y el nombre del empleado perteneciente, y se le pedirá que ingrese el número de
+        cedula del usuario que quiere eliminar, una vez ingresado correctamente, el usuario será eliminado de la lista.
+      </p>
+      </br>
+      <h4 id="15descripcion">
+        4.5 - Borrar Lista
+      </h4>
+      <p>
+        Esta opción borrará toda la lista de los empleados que se han ingresado, los cambios se guardarán una vez
+        realizado esa acción por lo que los cambios no son reversibles.
+      </p>
+      </br>
+      <h4 id="16descripcion">
+        4.6 - Calcular el salario de un empleado en especifico
+      </h4>
+      <p>
+        Para calcular el salario mensual de un empleado en específico, al inicio se le mostrará al usuario una lista de
+        los usuarios que están registrados mostrando su número de cedula y el nombre del empleado perteneciente, y se te
+        solicitará que ingreses el número de cedula del empleado que quieres consultar, y se mostrará un desglose y el
+        total del salario mensual del empleado.
+      </p>
+      </br>
+      <h4 id="17descripcion">
+        4.7 - Calcular el salario de todos los empleados
+      </h4>
+      <p>
+        Esta opción calculará el salario mensual de todos los usuarios registrados y te mostrará al final un desglose
+        total de todas las sumas de los salarios mensuales.
+      </p>
+      </br>
+      <h4 id="18descripcion">
+        4.8 - Salir
+      </h4>
+      <p>
+        Esta opción terminará de ejecutar el programa.
+      </p>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>Universidad Latina de Costa Rica - 2023</p>
+  </footer>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

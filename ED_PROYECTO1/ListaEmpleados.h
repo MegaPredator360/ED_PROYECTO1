@@ -9,8 +9,8 @@ private:
 
 public:
 	ListaEmpleados();
-	void agregarEmpleados(Persona p);
-	void actualizarEmpleados(Nodo* valorModificar, Persona p);
+	void agregarEmpleados(Empleado e);
+	void actualizarEmpleados(Nodo* valorModificar, Empleado e);
 	void mostrarEmpleadosCompleto();
 	void mostrarEmpleadosSimple();
 	Nodo* buscarEmpleados(string cedula);

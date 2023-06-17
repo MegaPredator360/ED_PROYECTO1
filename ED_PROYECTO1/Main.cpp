@@ -79,7 +79,7 @@ int main()
 	// Pausar procesos y para continuar hay que pulsar cualquier tecla
 	system("pause");
 
-	Persona _persona;
+	Empleado _empleado;
 	ListaEmpleados _listaEmpleados;
 	Validaciones _validar;
 	int opcion = 0;
@@ -126,38 +126,38 @@ int main()
 						switch (numTipoCedula)
 						{
 						case 1:
-							_persona.setTipoCedula("Nacional");
+							_empleado.setTipoCedula("Nacional");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 9 digitos, incluir los 0)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0'	|| _listaEmpleados.verificarCedula(_persona.getCedula()) != false)
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 9 || _empleado.getCedula().at(1) != '0' || _empleado.getCedula().at(5) != '0'	|| _listaEmpleados.verificarCedula(_empleado.getCedula()) != false)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado o ya existe. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
 						case 2:
-							_persona.setTipoCedula("Juridica");
+							_empleado.setTipoCedula("Juridica");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_empleado.getCedula()) == true)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
 						case 3:
-							_persona.setTipoCedula("Extranjero");
+							_empleado.setTipoCedula("Extranjero");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_persona.getCedula()) == true)
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 12 || _listaEmpleados.verificarCedula(_empleado.getCedula()) == true)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
@@ -175,7 +175,7 @@ int main()
 							getline(cin, Nombre);
 						}
 						
-						_persona.setNombre(Nombre);
+						_empleado.setNombre(Nombre);
 
 						cout << "Ingrese la nacionalidad: " << endl;
 						getline(cin, Nacionalidad);
@@ -186,7 +186,7 @@ int main()
 							getline(cin, Nacionalidad);
 						}
 
-						_persona.setNacionalidad(Nacionalidad);
+						_empleado.setNacionalidad(Nacionalidad);
 
 						cout << "Ingrese la residencia: " << endl;
 						getline(cin, Residencia);
@@ -197,14 +197,14 @@ int main()
 							getline(cin, Residencia);
 						}
 
-						_persona.setResidencia(Residencia);
+						_empleado.setResidencia(Residencia);
 
 						cout << "Ingrese el telefono: " << endl;
-						_persona.setTelefono(_validar.numeroTelefonoAleatorio());
-						cout << _persona.getTelefono() << endl;
+						_empleado.setTelefono(_validar.numeroTelefonoAleatorio());
+						cout << _empleado.getTelefono() << endl;
 
 						cout << "Ingrese la cantidad de hijos: " << endl;
-						_persona.setNumeroHijos(stoi(_validar.aceptarNumeros()));
+						_empleado.setNumeroHijos(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el Estado Civil: " << YELLOW << "[1) Soltero(a), 2) Casado(a), 3) Viudo(a), 4) Divorciado(a)]" << RESET << endl;
 						numEstadoCivil = stoi(_validar.aceptarNumeros());
@@ -218,19 +218,19 @@ int main()
 						switch (numEstadoCivil)
 						{
 						case 1:
-							_persona.setEstadoCivil("Soltero(a)");
+							_empleado.setEstadoCivil("Soltero(a)");
 							break;
 
 						case 2:
-							_persona.setEstadoCivil("Casado(a)");
+							_empleado.setEstadoCivil("Casado(a)");
 							break;
 
 						case 3:
-							_persona.setEstadoCivil("Viudo(a)");
+							_empleado.setEstadoCivil("Viudo(a)");
 							break;
 
 						case 4:
-							_persona.setEstadoCivil("Divorciado(a)");
+							_empleado.setEstadoCivil("Divorciado(a)");
 							break;
 
 						default:
@@ -239,10 +239,10 @@ int main()
 						}
 
 						cout << "Ingrese la cantidad de horas de trabajo al mes: " << endl;
-						_persona.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
+						_empleado.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas en el mes: " << endl;
-						_persona.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
+						_empleado.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el puesto del empleado: " << YELLOW << "[1) Empleado, 2) Gerente]" << RESET << endl;
 						numTipoEmpleado = stoi(_validar.aceptarNumeros());
@@ -256,11 +256,11 @@ int main()
 						switch (numTipoEmpleado)
 						{
 						case 1:
-							_persona.setTipoEmpleado("Empleado");
+							_empleado.setTipoEmpleado("Empleado");
 							break;
 
 						case 2:
-							_persona.setTipoEmpleado("Gerente");
+							_empleado.setTipoEmpleado("Gerente");
 							break;
 
 						default:
@@ -274,7 +274,7 @@ int main()
 						if (confirmacion == "S")
 						{
 							// Ya una vez que los datos son ingresados, serán enviados a la lista para ser agregados
-							_listaEmpleados.agregarEmpleados(_persona);
+							_listaEmpleados.agregarEmpleados(_empleado);
 							_listaEmpleados.guardarArchivo();
 							cout << GREEN << "¡El empleado ha sido agregado exitosamente!" << RESET << endl;
 							system("pause");
@@ -362,38 +362,38 @@ int main()
 						switch (numTipoCedula)
 						{
 						case 1:
-							_persona.setTipoCedula("Nacional");
+							_empleado.setTipoCedula("Nacional");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 9 digitos, incluir los 0)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 9 || _persona.getCedula().at(1) != '0' || _persona.getCedula().at(5) != '0')
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 9 || _empleado.getCedula().at(1) != '0' || _empleado.getCedula().at(5) != '0')
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
 						case 2:
-							_persona.setTipoCedula("Juridica");
+							_empleado.setTipoCedula("Juridica");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12)
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 12)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
 						case 3:
-							_persona.setTipoCedula("Extranjero");
+							_empleado.setTipoCedula("Extranjero");
 
 							cout << "Ingrese el número de cedula: " << YELLOW << "(Minimo: 12 digitos)" << RESET << endl;
-							_persona.setCedula(_validar.aceptarNumeros());
-							while (_persona.getCedula().length() != 12)
+							_empleado.setCedula(_validar.aceptarNumeros());
+							while (_empleado.getCedula().length() != 12)
 							{
 								cout << RED << "Lo ingresado no coincide con el formato solicitado. Vuelve a ingresar el número de cedula" << RESET << endl;
-								_persona.setCedula(_validar.aceptarNumeros());
+								_empleado.setCedula(_validar.aceptarNumeros());
 							}
 							break;
 
@@ -410,7 +410,7 @@ int main()
 							getline(cin, Nombre);
 						}
 
-						_persona.setNombre(Nombre);
+						_empleado.setNombre(Nombre);
 
 						cout << "Ingrese la nacionalidad: " << endl;
 						getline(cin, Nacionalidad);
@@ -421,7 +421,7 @@ int main()
 							getline(cin, Nacionalidad);
 						}
 
-						_persona.setNacionalidad(Nacionalidad);
+						_empleado.setNacionalidad(Nacionalidad);
 
 						cout << "Ingrese la residencia: " << endl;
 						getline(cin, Residencia);
@@ -432,14 +432,14 @@ int main()
 							getline(cin, Residencia);
 						}
 
-						_persona.setResidencia(Residencia);
+						_empleado.setResidencia(Residencia);
 
 						cout << "Ingrese el telefono: " << endl;
-						_persona.setTelefono(_validar.numeroTelefonoAleatorio());
-						cout << _persona.getTelefono() << endl;
+						_empleado.setTelefono(_validar.numeroTelefonoAleatorio());
+						cout << _empleado.getTelefono() << endl;
 
 						cout << "Ingrese la cantidad de hijos: " << endl;
-						_persona.setNumeroHijos(stoi(_validar.aceptarNumeros()));
+						_empleado.setNumeroHijos(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el Estado Civil: " << YELLOW << "[1) Soltero(a), 2) Casado(a), 3) Viudo(a), 4) Divorciado(a)]" << RESET << endl;
 						numEstadoCivil = stoi(_validar.aceptarNumeros());
@@ -453,19 +453,19 @@ int main()
 						switch (numEstadoCivil)
 						{
 						case 1:
-							_persona.setEstadoCivil("Soltero(a)");
+							_empleado.setEstadoCivil("Soltero(a)");
 							break;
 
 						case 2:
-							_persona.setEstadoCivil("Casado(a)");
+							_empleado.setEstadoCivil("Casado(a)");
 							break;
 
 						case 3:
-							_persona.setEstadoCivil("Viudo(a)");
+							_empleado.setEstadoCivil("Viudo(a)");
 							break;
 
 						case 4:
-							_persona.setEstadoCivil("Divorciado(a)");
+							_empleado.setEstadoCivil("Divorciado(a)");
 							break;
 
 						default:
@@ -474,10 +474,10 @@ int main()
 						}
 
 						cout << "Ingrese la cantidad de horas de trabajo al mes: " << endl;
-						_persona.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
+						_empleado.setHorasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingrese la cantidad de horas extra de trabajo acumuladas en el mes: " << endl;
-						_persona.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
+						_empleado.setHorasExtrasTrabajo(stoi(_validar.aceptarNumeros()));
 
 						cout << "Ingresa el puesto del empleado: " << YELLOW << "[1) Empleado, 2) Gerente]" << RESET << endl;
 						numTipoEmpleado = stoi(_validar.aceptarNumeros());
@@ -491,11 +491,11 @@ int main()
 						switch (numTipoEmpleado)
 						{
 						case 1:
-							_persona.setTipoEmpleado("Empleado");
+							_empleado.setTipoEmpleado("Empleado");
 							break;
 
 						case 2:
-							_persona.setTipoEmpleado("Gerente");
+							_empleado.setTipoEmpleado("Gerente");
 							break;
 
 						default:
@@ -509,7 +509,7 @@ int main()
 						if (confirmacion == "S")
 						{
 							// Ya una vez que los datos son ingresados, serán actualizados mediante un los setters
-							_listaEmpleados.actualizarEmpleados(valorActual, _persona);
+							_listaEmpleados.actualizarEmpleados(valorActual, _empleado);
 							_listaEmpleados.guardarArchivo();
 							opcion = 0;
 						}

@@ -6,31 +6,31 @@ ListaEmpleados::ListaEmpleados()
 	primerValor = valorActual = NULL;
 }
 
-void ListaEmpleados::agregarEmpleados(Persona p) 
+void ListaEmpleados::agregarEmpleados(Empleado e) 
 {
 	valorActual = primerValor;
 
 	//Se buscará si el primer valor de la lista ha sido usado, si no... Buscará por los nodos hasta encontrar un lugar para agregar los datos
-	if (primerValor == NULL || primerValor -> getValor().getCedula() > p.getCedula())
+	if (primerValor == NULL || primerValor -> getValor().getCedula() > e.getCedula())
 	{
-		primerValor = new Nodo(p, primerValor);
+		primerValor = new Nodo(e, primerValor);
 	}
 	else 
 	{
-		while ((valorActual -> getSiguiente() != NULL) && (valorActual -> getSiguiente() -> getValor().getCedula() <= p.getCedula())) 
+		while ((valorActual -> getSiguiente() != NULL) && (valorActual -> getSiguiente() -> getValor().getCedula() <= e.getCedula())) 
 		{
 			valorActual = valorActual -> getSiguiente();
 		}
-		Nodo* nuevo = new Nodo(p, valorActual -> getSiguiente());
+		Nodo* nuevo = new Nodo(e, valorActual -> getSiguiente());
 		valorActual -> setSiguienteNodo(nuevo);
 	}
 }
 
-void ListaEmpleados::actualizarEmpleados(Nodo* valorModificar, Persona p)
+void ListaEmpleados::actualizarEmpleados(Nodo* valorModificar, Empleado e)
 {
 	try
 	{
-		valorModificar -> setValor(p);
+		valorModificar -> setValor(e);
 		cout << GREEN << "¡El empleado ha sido actualizado exitosamente!" << RESET << endl;
 		system("pause");
 	}
@@ -114,9 +114,7 @@ void ListaEmpleados::calcularSalarioIndividual(Nodo* valorConsultar)
 {
 	try
 	{
-		Empleado _empleado;
-
-		_empleado.CalcularSalario(valorConsultar -> getValor());
+		valorConsultar -> getValor().CalcularSalario();
 		cout << "--------------------------------------------------" << endl;
 		cout << GREEN << "¡Se han cargado los datos con exito!" << RESET << endl;
 		system("pause");
@@ -131,7 +129,13 @@ void ListaEmpleados::calcularSalarioTodos()		// Se reutiliza la mayoria por no d
 {
 	try
 	{
-		Empleado _empleado;
+		float cantidadHoras = 0;
+		float cantidadExtras = 0;
+		float cantidadHijos = 0;
+		float cantidadSeguro = 0;
+		float cantidadGastos = 0;
+		float salarioMensual = 0;
+
 		valorActual = primerValor;
 
 		if (valorActual == NULL)		// Si la lista no tiene valores registrados
@@ -143,18 +147,30 @@ void ListaEmpleados::calcularSalarioTodos()		// Se reutiliza la mayoria por no d
 
 			while (valorActual != NULL) // Se ira por cada nodo buscando los datos para mostrarlos, se detendrá cuando un valor sea nulo o no existan más valores en la lista
 			{
-				_empleado.CalcularSalario(valorActual -> getValor());
+				valorActual -> getValor().CalcularSalario();
 				
 				// Recopilación de datos para resumen
-				_empleado.setHorasTrabajoTotal(_empleado.getHorasTrabajoTotal() + _empleado.getHorasTrabajo());
-				_empleado.setHorasExtraTotal(_empleado.getHorasExtraTotal() + _empleado.getHorasExtra());
-				_empleado.setCantidadHijosTotal(_empleado.getCantidadHijosTotal() + _empleado.getCantidadHijos());
-				_empleado.setPagoSeguroTotal(_empleado.getPagoSeguroTotal() + _empleado.getPagoSeguro());
-				_empleado.setOtrosGastosTotal(_empleado.getOtrosGastosTotal() + _empleado.getOtrosGastos());
-				_empleado.setSalarioMensualTotal(_empleado.getSalarioMensualTotal() + _empleado.getSalarioMensual());
+				if (valorActual -> getValor().getTipoEmpleado() == "Gerente")
+				{
+					cantidadHoras = cantidadHoras + (valorActual -> getValor().getHorasTrabajo() * 5000);
+					cantidadExtras = cantidadExtras + (valorActual -> getValor().getHorasExtrasTrabajo() * 3000);
+				}
+				else
+				{
+					cantidadHoras = cantidadHoras + (valorActual -> getValor().getHorasTrabajo() * 3000);
+					cantidadExtras = cantidadExtras + (valorActual -> getValor().getHorasExtrasTrabajo() * 1000);
+				}
+
+				cantidadHijos = cantidadHijos + (valorActual -> getValor().getNumeroHijos() * 5000);
 
 				valorActual = valorActual -> getSiguiente();
 			}
+
+			salarioMensual = cantidadExtras + cantidadHijos + cantidadHoras;
+			cantidadSeguro = salarioMensual * 0.1050;
+			cantidadGastos = salarioMensual * 0.15;
+			salarioMensual = salarioMensual - (cantidadSeguro + cantidadGastos);
+			Empleado _empleado(cantidadHoras, cantidadExtras, cantidadHijos, cantidadSeguro, cantidadGastos, salarioMensual);
 
 			_empleado.MostrarSalarioTotal();
 
@@ -194,7 +210,7 @@ void ListaEmpleados::cargarArchivo()
 {
 	try
 	{
-		Persona _persona;
+		Empleado _empleado;
 		Validaciones _validar;
 
 		// Cargar datos del archivo
@@ -205,40 +221,40 @@ void ListaEmpleados::cargarArchivo()
 			int cantidadLetras;
 			while (getline(cargarDatos, datos))
 			{
-				_persona.setTipoCedula(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getTipoCedula()) + 1);
+				_empleado.setTipoCedula(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getTipoCedula()) + 1);
 
-				_persona.setCedula(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getCedula()) + 1);
+				_empleado.setCedula(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getCedula()) + 1);
 
-				_persona.setNombre(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getNombre()) + 1);
+				_empleado.setNombre(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getNombre()) + 1);
 
-				_persona.setNacionalidad(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getNacionalidad()) + 1);
+				_empleado.setNacionalidad(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getNacionalidad()) + 1);
 
-				_persona.setResidencia(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getResidencia()) + 1);
+				_empleado.setResidencia(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getResidencia()) + 1);
 
-				_persona.setTelefono(stoi(datos.substr(0, datos.find("/"))));
-				datos.erase(0, _validar.tamanoString(to_string(_persona.getTelefono())) + 1);
+				_empleado.setTelefono(stoi(datos.substr(0, datos.find("/"))));
+				datos.erase(0, _validar.tamanoString(to_string(_empleado.getTelefono())) + 1);
 
-				_persona.setNumeroHijos(stoi(datos.substr(0, datos.find("/"))));
-				datos.erase(0, _validar.tamanoString(to_string(_persona.getNumeroHijos())) + 1);
+				_empleado.setNumeroHijos(stoi(datos.substr(0, datos.find("/"))));
+				datos.erase(0, _validar.tamanoString(to_string(_empleado.getNumeroHijos())) + 1);
 
-				_persona.setEstadoCivil(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getEstadoCivil()) + 1);
+				_empleado.setEstadoCivil(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getEstadoCivil()) + 1);
 
-				_persona.setHorasTrabajo(stoi(datos.substr(0, datos.find("/"))));
-				datos.erase(0, _validar.tamanoString(to_string(_persona.getHorasTrabajo())) + 1);
+				_empleado.setHorasTrabajo(stoi(datos.substr(0, datos.find("/"))));
+				datos.erase(0, _validar.tamanoString(to_string(_empleado.getHorasTrabajo())) + 1);
 
-				_persona.setHorasExtrasTrabajo(stoi(datos.substr(0, datos.find("/"))));
-				datos.erase(0, _validar.tamanoString(to_string(_persona.getHorasExtrasTrabajo())) + 1);
+				_empleado.setHorasExtrasTrabajo(stoi(datos.substr(0, datos.find("/"))));
+				datos.erase(0, _validar.tamanoString(to_string(_empleado.getHorasExtrasTrabajo())) + 1);
 
-				_persona.setTipoEmpleado(datos.substr(0, datos.find("/")));
-				datos.erase(0, _validar.tamanoString(_persona.getTipoEmpleado()) + 1);
+				_empleado.setTipoEmpleado(datos.substr(0, datos.find("/")));
+				datos.erase(0, _validar.tamanoString(_empleado.getTipoEmpleado()) + 1);
 
-				agregarEmpleados(_persona);
+				agregarEmpleados(_empleado);
 			}
 		}
 		cargarDatos.close();

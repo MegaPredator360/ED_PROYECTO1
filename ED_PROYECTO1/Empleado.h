@@ -1,68 +1,44 @@
 #pragma once
 #include "Persona.h"
 
-class Empleado
+class Empleado: public Persona
 {
 private:
-    float HorasTrabajo;
+    float HorasTrabajoPago;
     float HorasExtra;
     float CantidadHijos;
     float PagoSeguro;
     float OtrosGastos;
     float SalarioMensual;
-    float HorasTrabajoTotal = 0;
-    float HorasExtraTotal = 0;
-    float CantidadHijosTotal = 0;
-    float PagoSeguroTotal = 0;
-    float OtrosGastosTotal = 0;
-    float SalarioMensualTotal = 0;
 
 public:
     Empleado(void);
     Empleado(
-        float empHorasTrabajo,
+        float empHorasTrabajoPago,
         float empHorasExtra,
         float empCantidadHijos,
         float empPagoSeguro,
         float empOtrosGastos,
-        float empSalarioMensual,
-        float empHorasTrabajoTotal,
-        float empHorasExtraTotal,
-        float empCantidadHijosTotal,
-        float empPagoSeguroTotal,
-        float empOtrosGastosTotal,
-        float empSalarioMensualTotal
+        float empSalarioMensual
     );
 
     // Getters
-    float getHorasTrabajo();
+    float getHorasTrabajoPago();
     float getHorasExtra();
     float getCantidadHijos();
     float getPagoSeguro();
     float getOtrosGastos();
     float getSalarioMensual();
-    float getHorasTrabajoTotal();
-    float getHorasExtraTotal();
-    float getCantidadHijosTotal();
-    float getPagoSeguroTotal();
-    float getOtrosGastosTotal();
-    float getSalarioMensualTotal();
 
     // Setters
-    void setHorasTrabajo(float empHorasTrabajo);
+    void setHorasTrabajoPago(float empHorasTrabajoPago);
     void setHorasExtra(float empHorasExtra);
     void setCantidadHijos(float empCantidadHijos);
     void setPagoSeguro(float empPagoSeguro);
     void setOtrosGastos(float empOtrosGastos);
     void setSalarioMensual(float empSalarioMensual);
-    void setHorasTrabajoTotal(float empHorasTrabajoTotal);
-    void setHorasExtraTotal(float empHorasExtraTotal);
-    void setCantidadHijosTotal(float empCantidadHijosTotal);
-    void setPagoSeguroTotal(float empPagoSeguroTotal);
-    void setOtrosGastosTotal(float empOtrosGastosTotal);
-    void setSalarioMensualTotal(float empSalarioMensualTotal);
-
-    void CalcularSalario(Persona p);
+    
+    void CalcularSalario();
     void MostrarSalarioTotal();
 };
 

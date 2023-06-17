@@ -4,15 +4,15 @@
 class Nodo
 {
 private:
-	Persona _persona;		// Campo de datos
+	Empleado _empleado;		// Campo de datos
 	Nodo* siguiente;		// Puntero al siguiente nodo
 
 public:
-	Nodo(Persona, Nodo*);
+	Nodo(Empleado, Nodo*);
 	~Nodo();
-	void setValor(Persona p);
+	void setValor(Empleado e);
 	void setSiguienteNodo(Nodo* s);
-	Persona getValor();
+	Empleado getValor();
 	Nodo* getSiguiente();
 };
 

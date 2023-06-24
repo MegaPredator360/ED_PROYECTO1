@@ -16,39 +16,39 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Empleado.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Persona.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Validaciones.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Nodo.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ListaEmpleados.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Empleado.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Persona.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Validaciones.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Nodo.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ListaEmpleados.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
